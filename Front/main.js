@@ -5,16 +5,20 @@ fetch(furnitureList).then(response => response.json())
         console.log(furniture)
         let sectionArticles = "<ul>"
         for (let furnitureObject of furniture) {
-            sectionArticles += `<li>
-            <a href="#" ><img id="#product" src="${furnitureObject.imageUrl}"></img></a>
-            <div class=description--group>
-            <p>${furnitureObject.name}</p>
-            <p>${furnitureObject.price/1000 + "0 €"}</p>
-            </li>`
+            sectionArticles += displayProduct(furnitureObject)
         }
         sectionArticles += "</ul>"
         document.querySelector("#apitest").innerHTML = sectionArticles
     }).catch(erreur => alert("un problème est survenu"))
 
-
+function displayProduct(product){
+    console.log(product)
+    return `<li>
+    <a href="product.html?id=${product._id}" ><img id="#product" src="${product.imageUrl}"></img></a>
+    <div class=description--group>
+    <p>${product.name}</p>
+    <p>${product.price/1000 + "0 €"}</p>
+    </li>`
+}
    
+
