@@ -14,7 +14,7 @@ fetch(lienAPI).then(response => response.json())
 function displayProduct (product) {
   console.log(product)
   return `<li>
-    <a href="product.html?id=${product._id}" ><img id="#product" src="${product.imageUrl}"></img></a>
+    <a href="product.html?id=${product._id} id="urlProduit" ><img id="#product" src="${product.imageUrl}"></img></a>
     <div class=description--group>
     <p>${product.name}</p>
     <p>${product.price / 1000 + '0 €'}</p>
