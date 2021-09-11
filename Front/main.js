@@ -1,6 +1,6 @@
-const furnitureList = 'http://localhost:3000/api/furniture/'
+const lienAPI = 'http://localhost:3000/api/furniture/'
 document.querySelector('#apitest')
-fetch(furnitureList).then(response => response.json())
+fetch(lienAPI).then(response => response.json())
   .then(furniture => {
     console.log(furniture)
     let sectionArticles = '<ul>'
