@@ -27,6 +27,7 @@
   const article = await getArticle(articleID)
   console.log(article)
   hydrateArticle(article)
+  console.log(hydrateArticle(article))
 })()
 
 function getArticleID () {
