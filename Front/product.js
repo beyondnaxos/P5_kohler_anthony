@@ -24,10 +24,7 @@
 //  }
 (async function () {
   const articleID = getArticleID()
-  const article = await getArticle(articleID)
-  console.log(article)
-  hydrateArticle(article)
-  console.log(hydrateArticle(article))
+  await getArticle(articleID)
 })()
 
 function getArticleID () {
@@ -39,19 +36,17 @@ function getArticle (articleID) {
     .then(furniture => {
       console.log(furniture)
       let sectionArticles = '<ul>'
-      sectionArticles += hydrateArticle()
+      sectionArticles += hydrateArticle(furniture)
       sectionArticles += '</ul>'
       document.querySelector('#apitest').innerHTML = sectionArticles
     }).catch(erreur => alert('un problème est survenu'))
 }
 
-function hydrateArticle () {
-  const articleID = getArticleID()
-
+function hydrateArticle (article) {
   return `<li>
-    <a href="product.html?id=${articleID._id} id="urlProduit" ><img id="#product" src="${articleID.imageUrl}"></img></a>
+    <a href="product.html?id=${article._id}" id="urlProduit" ><img id="#product" src="${article.imageUrl}"></img></a>
     <div class=description--group>
-    <p>${articleID.name}</p>
-    <p>${articleID.price / 1000 + '0 €'}</p>
+    <p>${article.name}</p>
+    <p>${article.price / 1000 + '0 €'}</p>
     </li>`
 }
