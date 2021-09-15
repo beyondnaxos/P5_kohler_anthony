@@ -37,6 +37,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-radius: 0 0 20px 20px;
 }
 
 header .line-container {
@@ -119,7 +120,7 @@ header ul li .cartAlign {
 
 header ul li .cartIcon {
   font-size: 25px;
-  color: #814d2a;
+  color: #252525;
 }
 
 .nav-group {
@@ -139,11 +140,13 @@ header ul li .cartIcon {
           justify-content: space-between;
   width: 1024px;
   margin-bottom: 7px;
+  border-radius: 0 0 20px 20px;
 }
 
 .under-bar {
   width: 1024px;
   height: 20px;
+  border-radius: 0 0 20px 20px;
 }
 
 .under-bar .container-image {
@@ -153,8 +156,11 @@ header ul li .cartIcon {
   height: 20px;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
-  -webkit-filter: brightness(0);
-          filter: brightness(0);
+  -webkit-filter: brightness(0.4);
+          filter: brightness(0.4);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  border-radius: 20px 20px 0 0;
 }
 
 .logo-container {
@@ -198,7 +204,7 @@ main #apitest ul .indexList {
   padding: 10px;
   width: 200px;
   height: 265px;
-  background-color: #292826;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -233,7 +239,7 @@ main #apitest ul .indexList .description--groupList {
 main #apitest ul .indexList .description--groupList p {
   font-family: roboto, sans-serif;
   margin: 0;
-  color: white;
+  color: black;
   margin-left: auto;
   margin-right: 10px;
 }
@@ -279,6 +285,7 @@ main #apitest ul .indexList .description--groupList p {
           flex-direction: row;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 24px;
 }
 
 #apitest ul .productList .imgProduct {
@@ -290,6 +297,9 @@ main #apitest ul .indexList .description--groupList p {
       -ms-grid-row-align: center;
       align-self: center;
   padding: 10px;
+  border-radius: 24px;
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
 }
 
 #apitest ul .productList .description--groupProduct {
@@ -329,6 +339,14 @@ main #apitest ul .indexList .description--groupList p {
   background: #1d1c1c;
 }
 
+#apitest ul .productList .description--groupProduct #varnish {
+  width: 280px;
+  margin-right: 100px;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
 #apitest ul .productList .description--groupProduct .pPriceProduct {
   font-family: roboto, sans-serif;
   margin: 0;
@@ -339,9 +357,35 @@ main #apitest ul .indexList .description--groupList p {
 
 #apitest ul .productList .description--groupProduct .pPriceProduct::before {
   display: inline;
-  content: '';
+  content: "";
   width: 100px;
   height: 3px;
   background: #000;
+}
+
+#apitest ul .productList .description--groupProduct #cartButton {
+  margin-top: auto;
+  margin-bottom: 100px;
+  width: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+#apitest ul .productList .description--groupProduct #cartButton a {
+  cursor: pointer;
+}
+
+#apitest ul .productList .description--groupProduct #cartButton a button {
+  background-color: #252525;
+  border-radius: 9px;
+  color: white;
+  border: none;
+  height: 35px;
+  width: 150px;
+  font-size: 16px;
 }
 /*# sourceMappingURL=style.css.map */

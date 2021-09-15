@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap");
 
-
 body {
   background: #ffffff;
   margin: 0;
@@ -12,6 +11,7 @@ body {
   height: 100vh;
 }
 
+
 header {
   width: 1024px;
   height: 320px;
@@ -21,6 +21,8 @@ header {
   align-items: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   justify-content: space-between;
+  border-radius: 0 0 20px 20px;
+
   //   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   .line-container {
     width: 1024px;
@@ -28,72 +30,62 @@ header {
     background-color: rgba(0, 0, 0, 0.35);
     margin-left: auto;
     margin-top: 50px;
-    
+
     .container-image {
-        object-fit: cover;
-        height: 180px;
-        width: 1024px;
-        filter: grayscale(100%);
-        background: #000;
-        filter: brightness(0.42); 
-        transform: rotate(180deg);
+      object-fit: cover;
+      height: 180px;
+      width: 1024px;
+      filter: grayscale(100%);
+      background: #000;
+      filter: brightness(0.42);
+      transform: rotate(180deg);
 
-        
     }
-    .logo-container{
-        position: relative;
-        width: 200px;
-        height: 200px;
-        border-radius: 100px;
-        background-color: rgb(255, 255, 255);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: auto;
-        bottom: 190px;
-        left: 20px;
-        
-        
+    .logo-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 100px;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: auto;
+      bottom: 190px;
+      left: 20px;
 
-        .logo {
-          transform: scale(0.9);
-          border-radius: 100px;
-          }
+      .logo {
+        transform: scale(0.9);
+        border-radius: 100px;
+      }
     }
   }
-
-    
-    
 
   ul {
     display: flex;
     flex-direction: row;
     margin-left: auto;
     align-items: center;
-    
-    
+
     li {
       width: 120px;
       list-style-type: none;
       font-family: "Urbanist", sans-serif;
       font-weight: 600;
-      
+
       a {
         text-decoration: none;
         color: #323a45;
       }
 
-      .cartAlign{
+      .cartAlign {
         margin-left: 30px;
       }
 
-      .cartIcon{
+      .cartIcon {
         font-size: 25px;
-        color: rgb(129, 77, 42);
-        
-
+        color: rgb(37, 37, 37);
       }
-    
     }
   }
 }
@@ -106,164 +98,185 @@ header {
   justify-content: space-between;
   width: 1024px;
   margin-bottom: 7px;
-  
+  border-radius: 0 0 20px 20px;
 }
-.under-bar{
+.under-bar {
+  width: 1024px;
+  height: 20px;
+  border-radius: 0 0 20px 20px;
+
+  .container-image {
+    object-fit: cover;
     width: 1024px;
     height: 20px;
-    .container-image{
-        object-fit: cover;
-        width: 1024px;
-        height: 20px;
-        filter: grayscale(100%);
-        filter: brightness(0); 
-
-
-
-    }
+    filter: grayscale(100%);
+    filter: brightness(0.4);
+    transform: rotate(180deg);
+    border-radius: 20px 20px 0 0;
+  }
 }
-.logo-container{
-    position: relative;
-    right: 0;
+.logo-container {
+  position: relative;
+  right: 0;
 }
-
-
 
 main {
   width: 1024px;
- margin-top: 20px;
-#apitest{
+  margin-top: 20px;
+
+  #apitest {
     width: 1024px;
     display: flex;
     justify-content: center;
     ul {
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-        row-gap: 30px;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        .indexList{
-            padding: 10px;
-            width: 200px;
-            height: 265px;
-            background-color: rgb(41, 40, 38);
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-            
-            .imgList{
-                object-fit: cover;
-                height: 200px;
-                width: 200px;
-                
-            }
-            
-            .description--groupList{
-                height: 50px;
-                display: flex;
-                flex-direction: column;
-                margin-top: 10px;
-                row-gap: 10px;
-                
-               p {
-                   font-family: roboto, sans-serif;
-                   margin: 0;
-                   color: rgb(255, 255, 255);
-                   margin-left: auto;
-                   margin-right: 10px;
-               }
-               
-            }
-        }
-    }
-}
-}
-
-
-#apitest{
-  width: 1024px;
-  display: flex;
-  justify-content: center;
-  ul {
       padding: 0;
       display: flex;
       flex-direction: row;
       row-gap: 30px;
       flex-wrap: wrap;
       justify-content: space-between;
-      .productList{
-          padding: 10px;
-          width: 900px;
-          height: 520px;
-          background-color: rgb(255, 255, 255);
+      .indexList {
+        padding: 10px;
+        width: 200px;
+        height: 265px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+        .imgList {
+          object-fit: cover;
+          height: 200px;
+          width: 200px;
+          
+        }
+
+        .description--groupList {
+          height: 50px;
           display: flex;
-          flex-direction: row;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-          
-          .imgProduct{
-              object-fit: cover;
-              height: 500px;
-              width: 570px;
-              align-self: center;
-              padding: 10px;
+          flex-direction: column;
+          margin-top: 10px;
+          row-gap: 10px;
 
+          p {
+            font-family: roboto, sans-serif;
+            margin: 0;
+            color: rgb(0, 0, 0);
+            margin-left: auto;
+            margin-right: 10px;
           }
-          
-          .description--groupProduct{
-              width: 300px;
-              display: flex;
-              flex-direction: column;
-              margin-top: 10px;
-              row-gap: 30px;
-              margin-left: 20px;
-
-            //  .blackLine{
-            //    width: 280px;
-            //    height: 15px;
-            //    background: rgb(29, 28, 28);
-            //    margin-left: auto;
-            //    margin-right: 20px;
-            //  } 
-             .pTitleProduct {
-                 font-weight: 700;
-                 font-size: 36px;
-                 font-family: roboto, sans-serif;
-                 margin: 0;
-                 color: rgb(39, 39, 39);
-                 
-                }
-                
-                .description {
-               font-size: 18px;
-                 font-weight: 400;
-                 font-family: roboto, sans-serif;
-                 margin: 0;
-                 color: rgb(39, 39, 39);
-                 margin-right: 20px;
-             }
-             .blackLineSmall{
-              width: 280px;
-              height: 3px;
-              background: rgb(29, 28, 28);
-              
-             }
-             .pPriceProduct {
-                 font-family: roboto, sans-serif;
-                 margin: 0;
-                 color: rgb(39, 39, 39);
-                 margin-left: auto;
-                 margin-right: 20px;
-             }
-             .pPriceProduct::before{
-               display: inline;
-              content: '';
-              width: 100px;
-              height: 3px;
-              background: #000;
-              }
-             
-          }
+        }
       }
+    }
+  }
+}
+
+
+#apitest {
+  width: 1024px;
+  display: flex;
+  justify-content: center;
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    row-gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .productList {
+      padding: 10px;
+      width: 900px;
+      height: 520px;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      flex-direction: row;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      border-radius: 24px;
+
+      .imgProduct {
+        object-fit: cover;
+        height: 500px;
+        width: 570px;
+        align-self: center;
+        padding: 10px;
+        border-radius: 24px;
+        transform: rotate(2deg);
+      }
+
+      .description--groupProduct {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        row-gap: 30px;
+        margin-left: 20px;
+
+        .pTitleProduct {
+          font-weight: 700;
+          font-size: 36px;
+          font-family: roboto, sans-serif;
+          margin: 0;
+          color: rgb(39, 39, 39);
+        }
+
+        .description {
+          font-size: 18px;
+          font-weight: 400;
+          font-family: roboto, sans-serif;
+          margin: 0;
+          color: rgb(39, 39, 39);
+          margin-right: 20px;
+        }
+        .blackLineSmall {
+          width: 280px;
+          height: 3px;
+          background: rgb(29, 28, 28);
+        }
+
+        #varnish {
+          width: 280px;
+          margin-right: 100px;
+          padding: 5px;
+          border-radius: 5px;
+          font-weight: bold;
+        }
+
+        .pPriceProduct {
+          font-family: roboto, sans-serif;
+          margin: 0;
+          color: rgb(39, 39, 39);
+          margin-left: auto;
+          margin-right: 20px;
+        }
+
+        .pPriceProduct::before {
+          display: inline;
+          content: "";
+          width: 100px;
+          height: 3px;
+          background: #000;
+        }
+
+        #cartButton {
+          margin-top: auto;
+          margin-bottom: 100px;
+          width: 280px;
+          display: flex;
+          justify-content: end;
+          a {
+            cursor: pointer;
+            button {
+              background-color: #252525;
+              border-radius: 9px;
+              color: white;
+              border: none;
+              height: 35px;
+              width: 150px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
   }
 }
