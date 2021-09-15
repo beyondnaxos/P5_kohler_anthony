@@ -21,10 +21,10 @@ fetch(lienAPI).then(response => response.json())
 // Création de la fonction displayProduct qui va permettre de retourner la liste çi dessous à l'interieur de la boucle
 function displayProduct (product) {
   console.log(product)
-  return `<li>
-    <a href="product.html?id=${product._id}" id="urlProduit" ><img id="#product" src="${product.imageUrl}"></img></a>
-    <div class=description--group>
-    <p>${product.name}</p>
-    <p>${product.price / 1000 + '0 €'}</p>
+  return `<li class="indexList">
+    <a href="product.html?id=${product._id}" id="urlProduit" ><img class="imgList" src="${product.imageUrl}"></img></a>
+    <div class=description--groupList>
+    <p class="pTitleList">${product.name}</p>
+    <p class="pQuoteList">${product.price / 1000 + '0 €'}</p>
     </li>`
 }

@@ -20,10 +20,19 @@ function getArticle (articleID) {
 }
 
 function hydrateArticle (article) {
-  return `<li>
-    <a href="product.html?id=${article._id}" id="urlProduit" ><img id="#product" src="${article.imageUrl}"></img></a>
-    <div class=description--group>
-    <p>${article.name}</p>
-    <p>${article.price / 1000 + '0 €'}</p>
-    </li>`
+  
+  return `<li class="productList">
+  <img class="imgProduct" src="${article.imageUrl}"></img>
+  <div class=description--groupProduct>
+  <div class="blackLine"></div>
+  <p class="pTitleProduct">${article.name}</p>
+  <div class="blackLineSmall"></div>
+  <p class="description">${article.description}</p>
+  <select name="Vernis" id="varnish" >
+  <option value="${article.varnish}">${article.varnish[0]}</option>
+  <option value="">${article.varnish[1]}</option>
+  </select>
+
+  <p class="pPriceProduct">${article.price / 1000 + '0 €'}</p>
+  </li>`
 }

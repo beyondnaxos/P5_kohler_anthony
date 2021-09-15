@@ -54,6 +54,11 @@ header .line-container .container-image {
   width: 1024px;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
+  background: #000;
+  -webkit-filter: brightness(0.42);
+          filter: brightness(0.42);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 header .line-container .logo-container {
@@ -91,6 +96,9 @@ header ul {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-left: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header ul li {
@@ -103,6 +111,10 @@ header ul li {
 header ul li a {
   text-decoration: none;
   color: #323a45;
+}
+
+header ul li .cartIcon {
+  font-size: 25px;
 }
 
 .nav-group {
@@ -136,6 +148,8 @@ header ul li a {
   height: 20px;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
+  -webkit-filter: brightness(0);
+          filter: brightness(0);
 }
 
 .logo-container {
@@ -175,11 +189,11 @@ main #apitest ul {
           justify-content: space-between;
 }
 
-main #apitest ul li {
+main #apitest ul .indexList {
   padding: 10px;
   width: 200px;
-  height: 260px;
-  background-color: white;
+  height: 265px;
+  background-color: #1f1e1e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -191,14 +205,14 @@ main #apitest ul li {
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-main #apitest ul li img {
+main #apitest ul .indexList .imgList {
   -o-object-fit: cover;
      object-fit: cover;
   height: 200px;
   width: 200px;
 }
 
-main #apitest ul li .description--group {
+main #apitest ul .indexList .description--groupList {
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -211,9 +225,118 @@ main #apitest ul li .description--group {
   row-gap: 10px;
 }
 
-main #apitest ul li .description--group p {
+main #apitest ul .indexList .description--groupList p {
+  font-family: roboto, sans-serif;
+  margin: 0;
+  color: white;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+#apitest {
+  width: 1024px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#apitest ul {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  row-gap: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#apitest ul .productList {
+  padding: 10px;
+  width: 900px;
+  height: 520px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#apitest ul .productList .imgProduct {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 500px;
+  width: 570px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 10px;
+}
+
+#apitest ul .productList .description--groupProduct {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10px;
+  row-gap: 30px;
+  margin-left: 20px;
+}
+
+#apitest ul .productList .description--groupProduct .pTitleProduct {
+  font-weight: 700;
+  font-size: 36px;
   font-family: roboto, sans-serif;
   margin: 0;
   color: #272727;
+}
+
+#apitest ul .productList .description--groupProduct .description {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: roboto, sans-serif;
+  margin: 0;
+  color: #272727;
+  margin-right: 20px;
+}
+
+#apitest ul .productList .description--groupProduct .blackLineSmall {
+  width: 280px;
+  height: 3px;
+  background: #1d1c1c;
+}
+
+#apitest ul .productList .description--groupProduct .pPriceProduct {
+  font-family: roboto, sans-serif;
+  margin: 0;
+  color: #272727;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+#apitest ul .productList .description--groupProduct .pPriceProduct::before {
+  display: inline;
+  content: '';
+  width: 100px;
+  height: 3px;
+  background: #000;
 }
 /*# sourceMappingURL=style.css.map */
