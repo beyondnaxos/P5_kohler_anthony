@@ -71,18 +71,20 @@ header {
     margin-left: auto;
     align-items: center;
     
-
+    .cartIcon 
     li {
       width: 120px;
       list-style-type: none;
       font-family: "Urbanist", sans-serif;
       font-weight: 600;
+      
       a {
         text-decoration: none;
         color: #323a45;
       }
       .cartIcon{
         font-size: 25px;
+        color: rgb(129, 77, 42);
       }
     
     }
@@ -138,7 +140,7 @@ main {
             padding: 10px;
             width: 200px;
             height: 265px;
-            background-color: rgb(31, 30, 30);
+            background-color: rgb(37, 37, 37);
             display: flex;
             flex-direction: column;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
