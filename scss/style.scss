@@ -192,17 +192,22 @@ main {
       flex-direction: row;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
       border-radius: 24px;
-
+      transition: 350ms ease-in-out;
+      &:hover > .imgProduct{
+        transform: rotate(2deg);
+        transition: 350ms ease-in-out;
+      }
       .imgProduct {
+        transition: 350ms ease-in-out;
         object-fit: cover;
         height: 500px;
         width: 570px;
         align-self: center;
         padding: 10px;
         border-radius: 24px;
-        transform: rotate(2deg);
+        transform: rotate(0deg);
       }
-
+      
       .description--groupProduct {
         width: 300px;
         display: flex;
@@ -247,6 +252,7 @@ main {
           color: rgb(39, 39, 39);
           margin-left: auto;
           margin-right: 20px;
+          font-weight: bold;
         }
 
         .pPriceProduct::before {
@@ -266,13 +272,17 @@ main {
           a {
             cursor: pointer;
             button {
-              background-color: #252525;
+              background-color: #fc5e15;
               border-radius: 9px;
               color: white;
               border: none;
-              height: 35px;
-              width: 150px;
-              font-size: 16px;
+              height: 40px;
+              width: 160px;
+              font-size: 15px;
+              font-weight: bold;
+            }
+            &:hover{
+              filter: opacity(0.9);
             }
           }
         }

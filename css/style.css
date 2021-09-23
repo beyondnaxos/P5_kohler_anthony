@@ -286,9 +286,20 @@ main #apitest ul .indexList .description--groupList p {
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 24px;
+  -webkit-transition: 350ms ease-in-out;
+  transition: 350ms ease-in-out;
+}
+
+#apitest ul .productList:hover > .imgProduct {
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+  -webkit-transition: 350ms ease-in-out;
+  transition: 350ms ease-in-out;
 }
 
 #apitest ul .productList .imgProduct {
+  -webkit-transition: 350ms ease-in-out;
+  transition: 350ms ease-in-out;
   -o-object-fit: cover;
      object-fit: cover;
   height: 500px;
@@ -298,8 +309,8 @@ main #apitest ul .indexList .description--groupList p {
       align-self: center;
   padding: 10px;
   border-radius: 24px;
-  -webkit-transform: rotate(2deg);
-          transform: rotate(2deg);
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
 #apitest ul .productList .description--groupProduct {
@@ -353,6 +364,7 @@ main #apitest ul .indexList .description--groupList p {
   color: #272727;
   margin-left: auto;
   margin-right: 20px;
+  font-weight: bold;
 }
 
 #apitest ul .productList .description--groupProduct .pPriceProduct::before {
@@ -380,12 +392,18 @@ main #apitest ul .indexList .description--groupList p {
 }
 
 #apitest ul .productList .description--groupProduct #cartButton a button {
-  background-color: #252525;
+  background-color: #fc5e15;
   border-radius: 9px;
   color: white;
   border: none;
-  height: 35px;
-  width: 150px;
-  font-size: 16px;
+  height: 40px;
+  width: 160px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#apitest ul .productList .description--groupProduct #cartButton a:hover {
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 /*# sourceMappingURL=style.css.map */

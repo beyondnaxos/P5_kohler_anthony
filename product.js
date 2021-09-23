@@ -1,4 +1,3 @@
-
 (async function () {
   const articleID = getArticleID()
   await getArticle(articleID)
@@ -8,15 +7,16 @@ function getArticleID () {
   return new URL(location.href).searchParams.get('id')
 }
 
-function getArticle (articleID) {
-  return fetch(`http://localhost:3000/api/furniture/${articleID}`).then(response => response.json())
-    .then(furniture => {
-      console.log(furniture)
-      let sectionArticles = '<ul>'
-      sectionArticles += hydrateArticle(furniture)
-      sectionArticles += '</ul>'
-      document.querySelector('#apitest').innerHTML = sectionArticles
-    }).catch(erreur => alert('un problème est survenu'))
+async function getArticle (articleID) {
+  try {
+    const response = await fetch(`http://localhost:3000/api/furniture/${articleID}`)
+    const furniture = await response.json()
+    const sectionArticles = `<ul>${hydrateArticle(furniture)}</ul>`
+    document.querySelector('#apitest').innerHTML = sectionArticles
+  } catch (error) {
+    console.error(error.message)
+    alert('un problème est survenu')
+  }
 }
 
 function hydrateArticle (article) {
@@ -28,8 +28,7 @@ function hydrateArticle (article) {
   <div class="blackLineSmall"></div>
   <p class="description">${article.description}</p>
   <select name="Vernis" id="varnish" >
-  <option value="">${article.varnish[0]}</option>
-  <option value="">${article.varnish[1]}</option>
+  ${displayVarnish(article.varnish)}
   </select>
   <p class="pPriceProduct">${article.price / 1000 + '0 €'}</p>
   <div id="cartButton">
@@ -37,4 +36,8 @@ function hydrateArticle (article) {
   </div>
   </div>
   </li>`
+}
+
+function displayVarnish (varnishs) {
+  return varnishs.map(varnish => `<option>${varnish}</option>`).join('')
 }
