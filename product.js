@@ -34,22 +34,31 @@ async function getArticle (articleID) {
       }
       console.log(productOption)
 
+      const confirmation = () => {
+        if (window.confirm(` ${furniture.name} avec l'option ${chooseOption} a bien été ajouté au panier`)) {
+          window.location.href = 'cart.html'
+        } else {
+          window.location.href = 'index.html'
+        }
+      }
+
       // --------------LOCAL STORAGE---------------------------------------
       // ---------------------stocker la récupération des valeurs du formulaire dans le local storage ---
 
       let productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
-      console.log(productInLocalStorage)
 
       // condition pour verifier si un produit  est déjà enregistré dans le local storage
 
       if (productInLocalStorage) {
         productInLocalStorage.push(productOption)
         localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
+        confirmation()
       } else {
         productInLocalStorage = []
         productInLocalStorage.push(productOption)
         localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
         console.log(productInLocalStorage)
+        confirmation()
       }
     })
     console.log(btnSendToCart)
