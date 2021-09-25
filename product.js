@@ -33,6 +33,24 @@ async function getArticle (articleID) {
         option: chooseOption
       }
       console.log(productOption)
+
+      // --------------LOCAL STORAGE---------------------------------------
+      // ---------------------stocker la récupération des valeurs du formulaire dans le local storage ---
+
+      let productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
+      console.log(productInLocalStorage)
+
+      // condition pour verifier si un produit  est déjà enregistré dans le local storage
+
+      if (productInLocalStorage) {
+        productInLocalStorage.push(productOption)
+        localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
+      } else {
+        productInLocalStorage = []
+        productInLocalStorage.push(productOption)
+        localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
+        console.log(productInLocalStorage)
+      }
     })
     console.log(btnSendToCart)
 
@@ -66,14 +84,3 @@ function hydrateArticle (article) {
 function displayVarnish (varnishs) {
   return varnishs.map(varnish => `<option>${varnish}</option>`).join('')
 }
-
-// ----------gestion du panier -----------
-// la récupération des données séléctionnées dans le panier ---
-
-// const idForm = document.getElementsByTagName('select')
-// console.log(idForm)
-
-// mettre le choix d'utilisateur dans une variable
-
-// --------------LOCAL STORAGE---------------------------------------
-// ---------------------stocker la récupération des valeurs du formulaire dans le local storage ---
