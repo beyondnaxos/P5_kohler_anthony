@@ -25,6 +25,6 @@ function displayProduct (product) {
     <a href="product.html?id=${product._id}" id="urlProduit" ><img class="imgList" src="${product.imageUrl}"></img></a>
     <div class=description--groupList>
     <p class="pTitleList">${product.name}</p>
-    <p class="pQuoteList">${product.price / 1000 + '0 €'}</p>
+    <p class="pQuoteList">${product.price / 100 + '.00 €'}</p>
     </li>`
 }

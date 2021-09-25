@@ -18,8 +18,25 @@ async function getArticle (articleID) {
     const select = document.querySelector('#varnish')
     console.log(select)
 
-    const chooseOption = select.value
-    console.log(chooseOption)
+    // selection du bouton ajouter au panier
+
+    const btnSendToCart = document.querySelector('#buttonClic')
+    btnSendToCart.addEventListener('click', (event) => {
+      event.preventDefault()
+
+      const chooseOption = select.value
+      console.log(chooseOption)
+
+      const productOption = {
+        name: furniture.name,
+        price: furniture.price / 100,
+        option: chooseOption
+      }
+      console.log(productOption)
+    })
+    console.log(btnSendToCart)
+
+    // gestion de l'erreur
   } catch (error) {
     console.error(error.message)
     alert('un problème est survenu')
@@ -38,9 +55,9 @@ function hydrateArticle (article) {
   <select name="Vernis" id="varnish" >
   ${displayVarnish(article.varnish)}
   </select>
-  <p class="pPriceProduct">${article.price / 1000 + '0 €'}</p>
+  <p class="pPriceProduct">${article.price / 100 + '.00 €'}</p>
   <div id="cartButton">
-  <a href="#"><button type="button" id="buttonClic">Ajouter au panier</button></a>
+  <a href="#"><button type="submit" id="buttonClic">Ajouter au panier</button></a>
   </div>
   </div>
   </li>`
