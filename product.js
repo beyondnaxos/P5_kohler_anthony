@@ -11,13 +11,21 @@ async function getArticle (articleID) {
   try {
     const response = await fetch(`http://localhost:3000/api/furniture/${articleID}`)
     const furniture = await response.json()
+
     const sectionArticles = `<ul>${hydrateArticle(furniture)}</ul>`
     document.querySelector('#apitest').innerHTML = sectionArticles
+
+    const select = document.querySelector('#varnish')
+    console.log(select)
+
+    const chooseOption = select.value
+    console.log(chooseOption)
   } catch (error) {
     console.error(error.message)
     alert('un problème est survenu')
   }
 }
+// dans cette fonction article vaut les valeurs de furniture
 
 function hydrateArticle (article) {
   return `<li class="productList">
@@ -41,3 +49,14 @@ function hydrateArticle (article) {
 function displayVarnish (varnishs) {
   return varnishs.map(varnish => `<option>${varnish}</option>`).join('')
 }
+
+// ----------gestion du panier -----------
+// la récupération des données séléctionnées dans le panier ---
+
+// const idForm = document.getElementsByTagName('select')
+// console.log(idForm)
+
+// mettre le choix d'utilisateur dans une variable
+
+// --------------LOCAL STORAGE---------------------------------------
+// ---------------------stocker la récupération des valeurs du formulaire dans le local storage ---
