@@ -1,41 +1,33 @@
-function getCart () {
-  return new URL(location.href).searchParams.get('cart')
-}
+const productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
+console.log(productInLocalStorage)
 
-const cat = localStorage.getItem('produit')
-console.log(cat)
+// for (const objectLoop of localStorageObject) {
 
-const catObject = JSON.parse(cat)
-console.log(catObject)
+// --------affichage des produits du panier
 
-const panier = {
-  constructor (name, varnish, price, quantity) {
-    this.name = catObject.name
-    this.varnish = catObject.varnish
-    this.price = catObject.price
+const displayProductCart = document.querySelector('#productToShow')
+console.log(displayProductCart)
+
+// si le panier est vide
+
+if (productInLocalStorage === null) {
+  const emptyCart = '<div id="cartIsEmpty"><p class="emptyCartStyle">Le panier est vide</p></div>'
+  displayProductCart.innerHTML = emptyCart
+} else {
+  const itemsCart = []
+  for (let k = 0; k < productInLocalStorage.lenght; k++) {
+    console.log(productInLocalStorage.lenght)
   }
+
+  //  itemsCart = `
+  //  <div id="cartIsFilled">
+  //  <p class="itemCart">${displayProductCart.name}</p>
+  //  <p class="itemCart">${displayProductCart.varnish}</p>
+  //  <p class="itemCart">1</p>
+  //  <p class="itemCart">${displayProductCart.price}</p>
+  //  </div>`
+  //  displayProductCart.innerHTML = itemsCart
+  //  console.log('je ne suis pas vide')
 }
 
-console.log(panier)
-
-const sectionArticles = `<ul>${hydrateArticle(catObject)}</ul>`
-document.querySelector('#apitest').innerHTML = sectionArticles
-
-function hydrateArticle (panier) {
-  return `<li class="productList">
-    <img class="imgProduct" src="${panier.imageUrl}"></img>
-    <div class=description--groupProduct>
-    <div class="blackLine"></div>
-    <p class="pTitleProduct">${panier.name}</p>
-    <div class="blackLineSmall"></div>
-    <p class="description">${panier.description}</p>
-    <select name="Vernis" id="varnish" >
-    ${panier.varnish}
-    </select>
-    <p class="pPriceProduct">${panier.price / 100 + '.00 €'}</p>
-    <div id="cartButton">
-    <a href="#"><button type="submit" id="buttonClic">Ajouter au panier</button></a>
-    </div>
-    </div>
-    </li>`
-}
+// add event listener on click clear local storage to clear cart

@@ -47,16 +47,19 @@ async function getArticle (articleID) {
 
       let productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
 
+      // fonction pour ajouter un produit dans le local storage
+      const addToLS = () => {
+        productInLocalStorage.push(productOption)
+        localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
+      }
       // condition pour verifier si un produit  est déjà enregistré dans le local storage
 
       if (productInLocalStorage) {
-        productInLocalStorage.push(productOption)
-        localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
+        addToLS()
         confirmation()
       } else {
         productInLocalStorage = []
-        productInLocalStorage.push(productOption)
-        localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
+        addToLS()
         console.log(productInLocalStorage)
         confirmation()
       }
