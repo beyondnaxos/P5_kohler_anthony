@@ -538,4 +538,9 @@ main #apitest ul .indexList .description--groupList p {
   font-size: 17px;
   width: 250px;
 }
+
+.inputQuantity {
+  width: 30px;
+  margin-right: 200px;
+}
 /*# sourceMappingURL=style.css.map */
