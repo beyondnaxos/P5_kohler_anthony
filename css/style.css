@@ -445,16 +445,8 @@ main #apitest ul .indexList .description--groupList p {
   background-color: #3a1c00;
   min-height: 200px;
   margin-bottom: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: columns;
-          flex-direction: columns;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .containerCart .totalCart {

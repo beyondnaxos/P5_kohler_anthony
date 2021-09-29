@@ -312,9 +312,7 @@ main {
     background-color: rgb(58, 28, 0);
     min-height: 200px;
     margin-bottom: 10px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: columns;
+    flex-wrap: wrap;
   }
   .totalCart {
     margin-top: auto;
