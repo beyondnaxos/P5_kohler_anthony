@@ -1,8 +1,9 @@
+// Récupération de l'id des articles de l'api  grâce à une fonction async et stockage dans une constante
 (async function () {
   const articleID = getArticleID()
   await getArticle(articleID)
 })()
-
+// fonction permettant la création de l'url ID
 function getArticleID () {
   return new URL(location.href).searchParams.get('id')
 }
