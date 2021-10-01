@@ -531,6 +531,7 @@ main #apitest ul .indexList .description--groupList p {
       -ms-flex-pack: start;
           justify-content: flex-start;
   width: 100%;
+  padding: 15px 0;
 }
 
 #cartIsFilled .itemCart {
@@ -541,6 +542,6 @@ main #apitest ul .indexList .description--groupList p {
 
 .inputQuantity {
   width: 30px;
-  margin-right: 200px;
+  margin-right: 150px;
 }
 /*# sourceMappingURL=style.css.map */

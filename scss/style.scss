@@ -373,15 +373,18 @@ main {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+  padding: 15px 0;
   .itemCart{
     
     color: rgb(2, 2, 2);
     font-size: 17px;
     width: 250px;
+    
   }
 }
 
 .inputQuantity{
   width: 30px;
-  margin-right: 200px;
+  margin-right: 150px;
 }
+

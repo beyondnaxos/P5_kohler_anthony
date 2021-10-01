@@ -3,49 +3,56 @@ const productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
 console.log(productInLocalStorage)
 const displayProductCart = document.querySelector('#productToShow')
 console.log(displayProductCart)
+displayCart(productInLocalStorage)
 
-// si le panier est vide
-if (productInLocalStorage === null) {
-  const emptyCart = '<div id="cartIsEmpty"><p class="emptyCartStyle">Le panier est vide</p></div>'
-  displayProductCart.innerHTML = emptyCart
-
-// si le panier es rempli
-} else {
-// création du tableau qui contiendra les articles du panier
-  const itemsCart = []
-  // Boucle pour parcourir les items du local storage
-  for (let k = 0; k < productInLocalStorage.length; k++) {
-    // création du code à integrer
-    itemsCart[k] = `
-    <div id="cartIsFilled">
-    <p class="itemCart">${productInLocalStorage[k].name}</p>
-    <p class="itemCart">${productInLocalStorage[k].option}</p>
-    <input type="number" class="inputQuantity" min="1" max="10">      
-    <p class="itemCart">${productInLocalStorage[k].price},00€</p>
-    <button class="removeItem"><i class="far fa-trash-alt"></i></button>
-    </div>`
-  }
-  console.log(itemsCart)
-  // intégration du code à la div displayProductCart
-  displayProductCart.innerHTML = itemsCart
-  console.log('je ne suis pas vide')
-}
 
 // add event listener on click clear local storage to clear cart
-const removeItem = document.querySelectorAll('.removeItem')
-console.log(removeItem)
 
-for (let i = 0; i < removeItem.length; i++) {
-  removeItem[i].addEventListener('click', (event) => {
-    event.preventDefault()
-    const itemIDDelete = productInLocalStorage[i]
-    console.log(itemIDDelete)
-    // test
-    ouvrePopup(page)
-  })
+function displayCart (cart) {
+  // si le panier est vide
+  if (cart === null || cart.length === 0) {
+    const emptyCart = '<div id="cartIsEmpty"><p class="emptyCartStyle">Le panier est vide</p></div>'
+    displayProductCart.innerHTML = emptyCart
+
+    // si le panier es rempli
+  } else {
+    const itemsCart = []
+    // Boucle pour parcourir les items du local storage
+    for (let k = 0; k < cart.length; k++) {
+    // création du code à integrer
+      itemsCart[k] = `
+    <div id="cartIsFilled">
+    <p class="itemCart" id="itemName">${cart[k].name}</p>
+    <p class="itemCart">${cart[k].option}</p>
+    <input type="number" class="inputQuantity" min="1" max="10">      
+    <p class="itemCart">${cart[k].price},00€</p>
+    <button class="removeItem" data-index="${k}"><i class="far fa-trash-alt"></i></button>
+    </div>`
+    }
+    console.log(itemsCart)
+    // intégration du code à la div displayProductCart
+    displayProductCart.innerHTML = itemsCart.join('')
+    removeItems(cart)
+    console.log('je ne suis pas vide')
+  }
+  // création du tableau qui contiendra les articles du panier
 }
-const page = 'index.html'
 
-function ouvrePopup (page) {
-  // window.open(page, 'nom_popup', 'menubar=no, status=no, scrollbars=no, menubar=no, width=200, height=100')
+function removeItems (cart) {
+  const removeItem = document.querySelectorAll('.removeItem')
+  console.log(removeItem)
+
+  for (let i = 0; i < removeItem.length; i++) {
+    removeItem[i].addEventListener('click', (event) => {
+      event.preventDefault()
+      const target = event.target
+      const index = target.classList.contains('removeItem') ? target.dataset.index : target.parentNode.dataset.index
+      console.log(event.target)
+      console.log(index)
+      const newCart = [...cart]
+      newCart.splice(index, 1)
+      localStorage.setItem('produit', JSON.stringify(newCart))
+      displayCart(newCart)
+    })
+  }
 }
