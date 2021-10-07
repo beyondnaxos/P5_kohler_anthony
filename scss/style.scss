@@ -410,7 +410,7 @@ main {
 .form-popup {
   display: none;
   position: absolute;
-  top: 300px;
+  top: 200px;
   
   border: 3px solid #f1f1f1;
   z-index: 9;
@@ -420,15 +420,14 @@ main {
 .form-container {
   max-width: 1024px;
   width: 500px;
-  padding: 10px;
+  padding: 20px;
   background-color: white;
 }
 
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
-  // width: 80%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 16px 0;
   border: none;
   background: #f1f1f1;
 }
@@ -464,4 +463,14 @@ main {
 form {
   display: flex;
   flex-direction: column;
+}
+
+form h1 {
+  font-family: roboto;
+  margin-top: 0;
+}
+
+label{
+  font-weight: bold;
+  font-family: roboto;
 }
