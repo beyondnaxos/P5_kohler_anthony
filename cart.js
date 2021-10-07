@@ -5,13 +5,14 @@ const displayProductCart = document.querySelector('#productToShow')
 console.log(displayProductCart)
 displayCart(productInLocalStorage)
 
-// add event listener on click clear local storage to clear cart
-
 function displayCart (cart) {
   // si le panier est vide
   if (cart === null || cart.length === 0) {
     const emptyCart = '<div id="cartIsEmpty"><p class="emptyCartStyle">Le panier est vide</p></div>'
     displayProductCart.innerHTML = emptyCart
+    const priceToChange = document.querySelector('#cartPriceTotal')
+    const leprix = '0 €'
+    priceToChange.innerHTML = leprix
 
     // si le panier es rempli
   } else {
@@ -31,22 +32,10 @@ function displayCart (cart) {
     console.log(itemsCart)
     // intégration du code à la div displayProductCart
     displayProductCart.innerHTML = itemsCart.join('')
+    totalPanier()
     removeItems(cart)
     removeAll()
     console.log('je ne suis pas vide')
-    // total du panier
-    const totalCart = []
-    for (let i = 0; i < productInLocalStorage.length; i++) {
-      const totalPrice = productInLocalStorage[i].price
-      totalCart.push(totalPrice)
-    }
-    console.log(totalCart)
-    const reducer = (previousValue, currentValue) => previousValue + currentValue
-    const sumCart = totalCart.reduce(reducer)
-    console.log(sumCart)
-    const priceToChange = document.querySelector('#cartPriceTotal')
-    const leprix = ` ${sumCart} €`
-    priceToChange.innerHTML = leprix
   }
 }
 
@@ -79,4 +68,39 @@ function removeAll (cart) {
     localStorage.removeItem('produit')
     window.location.href = 'cart.html'
   })
+}
+
+function totalPanier () {
+  const totalCart = []
+  for (let i = 0; i < productInLocalStorage.length; i++) {
+    const totalPrice = productInLocalStorage[i].price
+    totalCart.push(totalPrice)
+  }
+  console.log(totalCart)
+  const reducer = (previousValue, currentValue) => previousValue + currentValue
+  const sumCart = totalCart.reduce(reducer)
+  console.log(sumCart)
+  const priceToChange = document.querySelector('#cartPriceTotal')
+  const leprix = ` ${sumCart} €`
+  priceToChange.innerHTML = leprix
+}
+
+// ouvrir popup form sur le bouton valider panier
+
+const validCmd = document.querySelector('#payButton')
+validCmd.addEventListener('click', () => {
+  openForm()
+})
+
+function openForm () {
+  document.getElementById('myForm').style.display = 'block'
+}
+
+const closePop = document.querySelector('.cancel')
+closePop.addEventListener('click', () => {
+  closeForm()
+})
+
+function closeForm () {
+  document.getElementById('myForm').style.display = 'none'
 }
