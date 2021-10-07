@@ -5,7 +5,6 @@ const displayProductCart = document.querySelector('#productToShow')
 console.log(displayProductCart)
 displayCart(productInLocalStorage)
 
-
 // add event listener on click clear local storage to clear cart
 
 function displayCart (cart) {
@@ -33,9 +32,22 @@ function displayCart (cart) {
     // intégration du code à la div displayProductCart
     displayProductCart.innerHTML = itemsCart.join('')
     removeItems(cart)
+    removeAll()
     console.log('je ne suis pas vide')
+    // total du panier
+    const totalCart = []
+    for (let i = 0; i < productInLocalStorage.length; i++) {
+      const totalPrice = productInLocalStorage[i].price
+      totalCart.push(totalPrice)
+    }
+    console.log(totalCart)
+    const reducer = (previousValue, currentValue) => previousValue + currentValue
+    const sumCart = totalCart.reduce(reducer)
+    console.log(sumCart)
+    const priceToChange = document.querySelector('#cartPriceTotal')
+    const leprix = ` ${sumCart} €`
+    priceToChange.innerHTML = leprix
   }
-  // création du tableau qui contiendra les articles du panier
 }
 
 function removeItems (cart) {
@@ -53,6 +65,18 @@ function removeItems (cart) {
       newCart.splice(index, 1)
       localStorage.setItem('produit', JSON.stringify(newCart))
       displayCart(newCart)
+      window.location.href = 'cart.html'
     })
   }
+}
+
+function removeAll (cart) {
+  const viderPanier = document.querySelector('#clearCart')
+  console.log(viderPanier)
+
+  viderPanier.addEventListener('click', (e) => {
+    e.preventDefault()
+    localStorage.removeItem('produit')
+    window.location.href = 'cart.html'
+  })
 }
