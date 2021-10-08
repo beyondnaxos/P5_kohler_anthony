@@ -36,11 +36,11 @@
     <main>
       <div class="containerCart" id="cartInner">
         <div class="titleBar">
-          <p class="navFont">Nom du produit</p>
-          <p class="navFont">Vernis</p>
-          <p class="navFont">Quantité</p>
-          <p class="navFont">Prix Unitaire</p>
-          <p class="navFont">Prix </p>
+          <p class="navFont" id="nameWidth">Nom du produit</p>
+          <p class="navFont" id="vernishWidth">Vernis</p>
+          <p class="navFont" id="qtWidth">Quantité</p>
+          <p class="navFont" id="priceUWidth">Prix Unitaire</p>
+          <p class="navFont" id="totalPriceWidth">Prix </p>
         </div>
         <div id="productToShow"></div>
         <div class="totalCart">
@@ -54,7 +54,7 @@
       </div>
 
       <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
+        <form action="/confirmation.html" class="form-container">
           <h1>Validation du panier</h1>
       
           <label for="email">Nom</label>
@@ -69,8 +69,8 @@
           <label for="psw">Ville</label>
           <input type="password" placeholder="Entrer votre ville" name="psw" required>
       
-          <button type="submit" class="btn">Procéder au paiement</button>
-          <button type="button" class="btn cancel">Close</button>
+          <button type="submit" class="btn" id="marginTop">Procéder au paiement</button>
+          <button type="button" class="btn cancel">Annuler</button>
         </form>
       </div>
 

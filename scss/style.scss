@@ -235,6 +235,7 @@ main {
           width: 280px;
           height: 3px;
           background: rgb(29, 28, 28);
+    
         }
 
         #varnish {
@@ -252,14 +253,18 @@ main {
           margin-left: auto;
           margin-right: 20px;
           font-weight: bold;
+          font-size: 20px;
         }
 
         .pPriceProduct::before {
-          display: inline;
+          display: block;
           content: "";
           width: 100px;
           height: 3px;
           background: #000;
+          position: relative;          
+          top: -10px;
+          left: -2px;
         }
 
         #cartButton {
@@ -381,14 +386,13 @@ main {
     
     color: rgb(2, 2, 2);
     font-size: 17px;
-    width: 250px;
     
   }
 }
 
 .inputQuantity{
   width: 30px;
-  margin-right: 150px;
+  margin-right: 110px;
 }
 
 
@@ -411,17 +415,16 @@ main {
   display: none;
   position: absolute;
   top: 200px;
+    z-index: 9;
+  }
   
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
+  /* Add styles to the form container */
+  .form-container {
+  border-radius: 20px;
   max-width: 1024px;
-  width: 500px;
+  width: 550px;
   padding: 20px;
-  background-color: white;
+  background-color: rgb(49, 49, 49);
 }
 
 /* Full-width input fields */
@@ -429,25 +432,26 @@ main {
   padding: 15px;
   margin: 5px 0 16px 0;
   border: none;
-  background: #f1f1f1;
+  background: #ffffff;
 }
 
 /* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
   background-color: #ddd;
   outline: none;
+ 
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
   background-color: #04AA6D;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
   margin-bottom:10px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Add a red background color to the cancel button */
@@ -457,7 +461,8 @@ main {
 
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
-  opacity: 1;
+  
+opacity: 1;
 }
 
 form {
@@ -468,9 +473,57 @@ form {
 form h1 {
   font-family: roboto;
   margin-top: 0;
+  color: white;
 }
 
 label{
   font-weight: bold;
   font-family: roboto;
+  color: white;
 }
+
+#nameWidth {
+  width: 250px;
+}
+
+#vernishWidth {
+  width: 170px;
+}
+#qtWidth{
+  width: 170px;
+}
+#priceUWidth{
+  width: 170px;
+ margin-right: 40px;
+}
+#totalPriceWidth{
+  width: 170px;
+}
+
+#itemName{
+width: 200px;
+margin-right: 50px;
+}
+#itemOption{
+width: 180px;
+}
+#itemQt{
+margin-right: 120px;
+}
+#itemPrice{
+width: 210px;
+}
+#itemTotalPrice{
+width: 100px;
+}
+
+.removeItem {
+  margin-right: 0;
+  margin-left: 30px;
+}
+
+#marginTop{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+

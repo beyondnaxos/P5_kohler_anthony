@@ -14,7 +14,7 @@ function displayCart (cart) {
     const leprix = '0 €'
     priceToChange.innerHTML = leprix
 
-    // si le panier es rempli
+    // si le panier est rempli
   } else {
     const itemsCart = []
     // Boucle pour parcourir les items du local storage
@@ -23,9 +23,10 @@ function displayCart (cart) {
       itemsCart[k] = `
     <div id="cartIsFilled">
     <p class="itemCart" id="itemName">${cart[k].name}</p>
-    <p class="itemCart">${cart[k].option}</p>
-    <input type="number" class="inputQuantity" min="1" max="10">      
-    <p class="itemCart">${cart[k].price},00€</p>
+    <p class="itemCart" id="itemOption">${cart[k].option}</p>
+    <input type="number" class="inputQuantity" id="itemQt" min="1" max="10">      
+    <p class="itemCart" id="itemPrice">${cart[k].price},00€</p>
+    <p class="itemCart" id="itemTotalPrice">${cart[k].price},00€</p>
     <button class="removeItem" data-index="${k}"><i class="far fa-trash-alt"></i></button>
     </div>`
     }
