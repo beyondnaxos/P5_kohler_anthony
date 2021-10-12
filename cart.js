@@ -105,3 +105,30 @@ closePop.addEventListener('click', () => {
 function closeForm () {
   document.getElementById('myForm').style.display = 'none'
 }
+
+// const form = document.querySelector('#form')
+
+// form.name.addEventListener('change', function () {
+//   validName(this)
+// })
+
+// const validName = function (inputName) {
+//   const inputNameReg = /^([A-Za-z]+),\s+([A-Za-z]+)\s+([A-Za-z]+)?$/
+// }
+
+// const validBtn = document.getElementById('processBtn')
+// validBtn.addEventListener('submit', function (e) {
+//   e.preventDefault()
+//   const erreur = 'ceci est une erreur'
+//   const name = document.getElementById('name')
+//   const prenom = document.getElementById('prenom')
+//   const adresse = document.getElementById('adresse')
+//   const zip = document.getElementById('zip')
+//   const ville = document.getElementById('ville')
+
+//   if (!name.value) {
+//     console.log(erreur)
+//   }
+// })
+
+// console.log(validBtn)

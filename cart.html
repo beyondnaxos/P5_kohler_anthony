@@ -54,22 +54,22 @@
       </div>
 
       <div class="form-popup" id="myForm">
-        <form action="/confirmation.html" class="form-container">
+        <form action="/confirmation.html" class="form-container" method="POST">
           <h1>Validation du panier</h1>
       
-          <label for="email">Nom</label>
-          <input type="text" placeholder="Entrer votre nom" name="email" required>
+          <label for="name">Nom</label>
+          <input id="nom" type="text" placeholder="Entrer votre nom" name="name">
       
-          <label for="psw">Prénom</label>
-          <input type="password" placeholder="Entrer votre prénom" name="psw" required>
-          <label for="psw">Adresse</label>
-          <input type="password" placeholder="Enter votre adresse" name="psw" required>
-          <label for="psw">Code postal</label>
-          <input type="password" placeholder="Entrer votre code postal" name="psw" required>
-          <label for="psw">Ville</label>
-          <input type="password" placeholder="Entrer votre ville" name="psw" required>
+          <label for="prenom">Prénom</label>
+          <input id="prenom"type="text" placeholder="Entrer votre prénom" name="prenom">
+          <label for="adresse">Adresse</label>
+          <input id="adresse"type="text" placeholder="Enter votre adresse" name="adresse">
+          <label for="zip">Code postal</label>
+          <input id="zip" type="text" placeholder="Entrer votre code postal" name="zip">
+          <label for="city">Ville</label>
+          <input id="ville"type="text" placeholder="Entrer votre ville" name="city">
       
-          <button type="submit" class="btn" id="marginTop">Procéder au paiement</button>
+          <button type="submit" class="btn" id="marginTop processBtn">Procéder au paiement</button>
           <button type="button" class="btn cancel">Annuler</button>
         </form>
       </div>
