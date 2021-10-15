@@ -31,7 +31,8 @@ async function getArticle (articleID) {
       const productOption = {
         name: furniture.name,
         price: furniture.price / 100,
-        option: chooseOption
+        option: chooseOption,
+        qunatité: 1
       }
       console.log(productOption)
 
