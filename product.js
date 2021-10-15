@@ -32,7 +32,7 @@ async function getArticle (articleID) {
         name: furniture.name,
         price: furniture.price / 100,
         option: chooseOption,
-        qunatité: 1
+        quantity: 1
       }
       console.log(productOption)
 
