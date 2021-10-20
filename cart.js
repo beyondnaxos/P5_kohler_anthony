@@ -131,3 +131,89 @@ function changeQuantityListener (cart) {
 function totalLine (price, quantity) {
   return price * quantity
 }
+
+// verification regex
+
+// Verif email
+document.querySelector('#email').addEventListener('input', (e) => {
+  const email = e.target.value
+  const result = verifEmail(email)
+  const spanEmail = document.querySelector('#validateEmail')
+  manageErrorInfo(result, spanEmail)
+})
+
+// Verif first name
+document.querySelector('#fName').addEventListener('input', (e) => {
+  const fName = e.target.value
+  const result = verifName(fName)
+  const spanFName = document.querySelector('#validateFName')
+  manageErrorInfo(result, spanFName)
+})
+
+// Verif name
+document.querySelector('#name').addEventListener('input', (e) => {
+  const name = e.target.value
+  const result = verifName(name)
+  const spanName = document.querySelector('#validateName')
+  manageErrorInfo(result, spanName)
+})
+
+// Verif adresse
+document.querySelector('#address').addEventListener('input', (e) => {
+  const address = e.target.value
+  const result = verifAddress(address)
+  const spanAddress = document.querySelector('#validateAddress')
+  manageErrorInfo(result, spanAddress)
+})
+
+// Verif ville
+document.querySelector('#city').addEventListener('input', (e) => {
+  const city = e.target.value
+  const result = verifName(city)
+  const spanCity = document.querySelector('#validateCity')
+  manageErrorInfo(result, spanCity)
+})
+
+document.querySelector('form').addEventListener('submit', (e) => {
+  e.preventDefault()
+  const formData = new FormData(e.target)
+  const email = formData.get('email')
+  console.log(email)
+  if (verifEmail(email)) {
+    alert('le form est valide')
+  }
+})
+
+function verifEmail (email) {
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+  return regexEmail.test(email)
+}
+function verifName (alpha) {
+  const regexName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
+  return regexName.test(alpha)
+}
+function verifAddress (address) {
+  const regexAddress = /^([1-9][0-9]*(?:-[1-9][0-9]*)*)[\s,-]+(?:(bis|ter|qua)[\s,-]+)?([\w]+[-\w]*)[\s,]+([-\w].+)$/
+  return regexAddress.test(address)
+}
+
+function manageErrorInfo (isOk, target) {
+  if (isOk) {
+    target.textContent = 'C\'est Ok'
+    target.classList.remove('isIncorrect')
+    target.classList.add('isValid')
+  } else {
+    target.textContent = 'C\'est pas bon'
+    target.classList.add('isIncorrect')
+  }
+}
+
+// document.querySelector('#show').addEventListener('click', (e) => {
+//   const showElt = document.querySelector('#password')
+//   console.log(showElt.getAttribute('type'), showElt)
+//   if (showElt.getAttribute('type') === 'password') {
+//     document.querySelector('#password').setAttribute('type', 'text')
+//   } else {
+//     document.querySelector('#password').setAttribute('type', 'password')
+//   }
+// })
