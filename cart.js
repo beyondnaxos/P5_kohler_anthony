@@ -132,11 +132,17 @@ function totalLine (price, quantity) {
   return price * quantity
 }
 
+let email
+let fName
+let nom
+let address
+let city
+
 // verification regex
 
 // Verif email
 document.querySelector('#email').addEventListener('input', (e) => {
-  const email = e.target.value
+  email = e.target.value
   const result = verifEmail(email)
   const spanEmail = document.querySelector('#validateEmail')
   manageErrorInfo(result, spanEmail)
@@ -144,7 +150,7 @@ document.querySelector('#email').addEventListener('input', (e) => {
 
 // Verif first name
 document.querySelector('#fName').addEventListener('input', (e) => {
-  const fName = e.target.value
+  fName = e.target.value
   const result = verifName(fName)
   const spanFName = document.querySelector('#validateFName')
   manageErrorInfo(result, spanFName)
@@ -152,15 +158,15 @@ document.querySelector('#fName').addEventListener('input', (e) => {
 
 // Verif name
 document.querySelector('#name').addEventListener('input', (e) => {
-  const name = e.target.value
-  const result = verifName(name)
+  nom = e.target.value
+  const result = verifName(nom)
   const spanName = document.querySelector('#validateName')
   manageErrorInfo(result, spanName)
 })
 
 // Verif adresse
 document.querySelector('#address').addEventListener('input', (e) => {
-  const address = e.target.value
+  address = e.target.value
   const result = verifAddress(address)
   const spanAddress = document.querySelector('#validateAddress')
   manageErrorInfo(result, spanAddress)
@@ -168,7 +174,7 @@ document.querySelector('#address').addEventListener('input', (e) => {
 
 // Verif ville
 document.querySelector('#city').addEventListener('input', (e) => {
-  const city = e.target.value
+  city = e.target.value
   const result = verifName(city)
   const spanCity = document.querySelector('#validateCity')
   manageErrorInfo(result, spanCity)
@@ -177,10 +183,40 @@ document.querySelector('#city').addEventListener('input', (e) => {
 document.querySelector('form').addEventListener('submit', (e) => {
   e.preventDefault()
   const formData = new FormData(e.target)
-  const email = formData.get('email')
-  console.log(email)
-  if (verifEmail(email)) {
-    alert('le form est valide')
+  email = formData.get('email')
+  fName = formData.get('fname')
+  nom = formData.get('name')
+  address = formData.get('address')
+  city = formData.get('city')
+  const contact = {
+    firstname: fName,
+    lastname: nom,
+    address: address,
+    city: city,
+    email: email
+  }
+  if (
+    verifEmail(email) &&
+    verifName(fName) &&
+    verifName(nom) &&
+    verifAddress(address) &&
+    verifName(city)
+  ) {
+    console.log(contact)
+    const promessePost = fetch('http://localhost:3000/api/furniture/order', {
+      method: 'POST',
+      body: JSON.stringify(contact),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    promessePost.then(async (response) => {
+      try {
+        console.log(response)
+      } catch (e) {
+        console.log(e)
+      }
+    })
   }
 })
 
