@@ -189,8 +189,8 @@ document.querySelector('form').addEventListener('submit', (e) => {
   address = formData.get('address')
   city = formData.get('city')
   const contact = {
-    firstname: fName,
-    lastname: nom,
+    firstName: fName,
+    lastName: nom,
     address: address,
     city: city,
     email: email
@@ -203,9 +203,12 @@ document.querySelector('form').addEventListener('submit', (e) => {
     verifName(city)
   ) {
     console.log(contact)
+    const products = productInLocalStorage.map(elt => elt.id)
+    const order = { contact, products }
+    console.log(order)
     const promessePost = fetch('http://localhost:3000/api/furniture/order', {
       method: 'POST',
-      body: JSON.stringify(contact),
+      body: JSON.stringify(order),
       headers: {
         'Content-Type': 'application/json'
       }
