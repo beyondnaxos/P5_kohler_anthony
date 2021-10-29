@@ -205,6 +205,12 @@ document.querySelector('form').addEventListener('submit', (e) => {
     console.log(contact)
     const products = productInLocalStorage.map(elt => elt.id)
     const order = { contact, products }
+    // ---------------
+    const orderToLS = () => {
+      productInLocalStorage.push(order)
+      localStorage.setItem('order', JSON.stringify(productInLocalStorage))
+    }
+    // ---------------
     console.log(order)
     const promessePost = fetch('http://localhost:3000/api/furniture/order', {
       method: 'POST',
@@ -247,15 +253,3 @@ function manageErrorInfo (isOk, target) {
   }
 }
 
-const contactInLS = localStorage.setItem('contact')
-console.log(contactInLS)
-
-// document.querySelector('#show').addEventListener('click', (e) => {
-//   const showElt = document.querySelector('#password')
-//   console.log(showElt.getAttribute('type'), showElt)
-//   if (showElt.getAttribute('type') === 'password') {
-//     document.querySelector('#password').setAttribute('type', 'text')
-//   } else {
-//     document.querySelector('#password').setAttribute('type', 'password')
-//   }
-// })
