@@ -247,6 +247,9 @@ function manageErrorInfo (isOk, target) {
   }
 }
 
+const contactInLS = localStorage.setItem('contact')
+console.log(contactInLS)
+
 // document.querySelector('#show').addEventListener('click', (e) => {
 //   const showElt = document.querySelector('#password')
 //   console.log(showElt.getAttribute('type'), showElt)
