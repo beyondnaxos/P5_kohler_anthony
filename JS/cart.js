@@ -1,27 +1,20 @@
-// récupération des objetsJSON stockés dans le localStorage et converson en objets JS
-const productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
-console.log(productInLocalStorage)
-const displayProductCart = document.querySelector('#productToShow')
-console.log(displayProductCart)
-displayCart(productInLocalStorage)
-changeQuantityListener(productInLocalStorage)
+const productInLocalStorage = JSON.parse(localStorage.getItem('produit')) // récupération des produits du local storage
+const displayProductCart = document.querySelector('#productToShow') // récupération de l'éspace dans lequel seront affichés les produits
+displayCart(productInLocalStorage) // appel de la fonction d'affichage du produit avec les prduit de local storage en paramètre
+changeQuantityListener(productInLocalStorage) // appel de la fonction du changement de prix dynamique avec les produits du local storage en paramètres
 
-function displayCart (cart) {
+function displayCart (cart) { // fonction permettant d'afficher les articles du panier
   // si le panier est vide
-  if (cart === null || cart.length === 0) {
-    const emptyCart = '<div id="cartIsEmpty"><p class="emptyCartStyle">Le panier est vide</p></div>'
-    displayProductCart.innerHTML = emptyCart
-    const priceToChange = document.querySelector('#cartPriceTotal')
-    const leprix = '0 €'
-    priceToChange.innerHTML = leprix
-
-    // si le panier est rempli
-  } else {
-    const itemsCart = []
-    // Boucle pour parcourir les items du local storage
-    for (let k = 0; k < cart.length; k++) {
-    // création du code à integrer
-      itemsCart[k] = `
+  if (cart === null || cart.length === 0) { // si product in local storage est vide ou null
+    const emptyCart = '<div id="cartIsEmpty"><p class="emptyCartStyle">Le panier est vide</p></div>' // phrase à afficher en cas de panier vide
+    displayProductCart.innerHTML = emptyCart // integration de la phrase sur la page si le panier est vide
+    const priceToChange = document.querySelector('#cartPriceTotal') // récupération de l'espace dans lequel est affiché le prix total
+    const leprix = '0 €' // initialisation du prix à zero
+    priceToChange.innerHTML = leprix // integration du prix sur le la page si le panier est vide
+  } else { // sinon si le panier est rempli
+    const itemsCart = [] // création d'un tableau qui contiendra le contenu à afficher pour chacun des produits
+    for (let k = 0; k < cart.length; k++) { // boucle servant à parcourir le tableau dans on integralité
+      itemsCart[k] = ` 
     <div id="cartIsFilled" data-index="${k}" >
     <p class="itemCart" id="itemName">${cart[k].name}</p>
     <p class="itemCart" id="itemOption">${cart[k].option}</p>
@@ -29,27 +22,22 @@ function displayCart (cart) {
     <p class="itemCart itemPrice" data-price="${cart[k].price}" id="itemPrice">${cart[k].price},00€</p>
     <p class="itemCart totalPriceItem" id="itemTotalPrice">${totalLine(cart[k].price, cart[k].quantity)},00€</p>
     <button class="removeItem" data-index="${k}"><i class="far fa-trash-alt"></i></button>
-    </div>`
+    </div>` // contenu à intégrer dans le tableau avec en paramètres les éléments du local storage, soit : productInLocalStorage.name etc
     }
-    console.log(itemsCart)
-    // intégration du code à la div displayProductCart
-    displayProductCart.innerHTML = itemsCart.join('')
-    const total = totalCart()
-    displayTotal(total)
-    removeItems(cart)
-    removeAll()
-    console.log('je ne suis pas vide')
+    displayProductCart.innerHTML = itemsCart.join('') // integration au panier des produits stockés dans le tableau
+    const total = totalCart() // stockage du prix total du panier dans la variable total
+    displayTotal(total) // integration du total dans son container grace à la fonction displayTotal
+    removeItems(cart) // appel de la fonction pour retirer un article au click sur le bouton removeItem
+    removeAll() // appel de la fonction pour retirer tous les articles du panier au click sur le bouton remove all
   }
 }
 
-function removeItems (cart) {
-  const removeItem = document.querySelectorAll('.removeItem')
-  console.log(removeItem)
-
-  for (let i = 0; i < removeItem.length; i++) {
-    removeItem[i].addEventListener('click', (event) => {
-      event.preventDefault()
-      const target = event.target
+function removeItems (cart) { // fonction permettant de retirer un article du panier ainsi que du local storage avec en paramètre productInLocalStorage
+  const removeItem = document.querySelectorAll('.removeItem') // recupération du bouton removeItem et stockage dans une varibable
+  for (let i = 0; i < removeItem.length; i++) { // boucle permettant de parcourir tous les boutons removeItem
+    removeItem[i].addEventListener('click', (event) => { // écoute de l'event click sur le bouton
+      event.preventDefault() // empêche les actions par défaut des boutons
+      const target = event.target // cible l'evenement du click sur le bouton et le stock dans index
       const index = target.classList.contains('removeItem') ? target.dataset.index : target.parentNode.dataset.index
       console.log(event.target)
       console.log(index)
