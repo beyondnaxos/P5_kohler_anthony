@@ -205,27 +205,36 @@ document.querySelector('form').addEventListener('submit', (e) => {
     console.log(contact)
     const products = productInLocalStorage.map(elt => elt.id)
     const order = { contact, products }
-    // ---------------
-    const orderToLS = () => {
-      productInLocalStorage.push(order)
-      localStorage.setItem('order', JSON.stringify(productInLocalStorage))
-    }
+    localStorage.setItem('order', JSON.stringify(order))
+
     // ---------------
     console.log(order)
-    const promessePost = fetch('http://localhost:3000/api/furniture/order', {
+    fetchAPI('http://localhost:3000/api/furniture/order', {
+      method: 'POST',
+      body: JSON.stringify(order),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(data => console.log(data))
+    /* const promessePost = fetch('http://localhost:3000/api/furniture/order', {
       method: 'POST',
       body: JSON.stringify(order),
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    promessePost.then(async (response) => {
+    const promiseResponse = promessePost.then(async (response) => {
       try {
         console.log(response)
+        return response.json()
       } catch (e) {
         console.log(e)
       }
     })
+    promiseResponse.then(orderConfirm => {
+      console.log(order)
+      localStorage.setItem('orderConfirm', JSON.stringify(orderConfirm))
+    }) */
   }
 })
 
@@ -253,3 +262,8 @@ function manageErrorInfo (isOk, target) {
   }
 }
 
+async function fetchAPI (url, options) {
+  const response = await fetch(url, options)
+  const data = await response.json()
+  return data
+}

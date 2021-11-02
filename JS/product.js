@@ -1,11 +1,13 @@
+
 // Récupération de l'id des articles de l'api  grâce à une fonction async et stockage dans une constante
 (async function () {
-  const articleID = getArticleID()
+  const articleID = getParamFromUrl('id')
   await getArticle(articleID)
 })()
+
 // fonction permettant la création de l'url ID
-function getArticleID () {
-  return new URL(location.href).searchParams.get('id')
+function getParamFromUrl (param) {
+  return new URL(location.href).searchParams.get(param)
 }
 
 async function getArticle (articleID) {
@@ -16,18 +18,11 @@ async function getArticle (articleID) {
     const sectionArticles = `<ul>${hydrateArticle(furniture)}</ul>`
     document.querySelector('#apitest').innerHTML = sectionArticles
 
-    const select = document.querySelector('#varnish')
-    console.log(select)
-
+    const chooseOption = document.querySelector('#varnish').value
     // selection du bouton ajouter au panier
-
     const btnSendToCart = document.querySelector('#buttonClic')
     btnSendToCart.addEventListener('click', (event) => {
       event.preventDefault()
-
-      const chooseOption = select.value
-      console.log(chooseOption)
-
       const productOption = {
         id: furniture._id,
         name: furniture.name,
@@ -36,46 +31,33 @@ async function getArticle (articleID) {
         quantity: 1
       }
       console.log(productOption)
-
-      const confirmation = () => {
-        if (window.confirm(` ${furniture.name} avec l'option ${chooseOption} a bien été ajouté au panier`)) {
-          window.location.href = 'cart.html'
-        } else {
-          window.location.href = 'index.html'
-        }
-      }
-
-      // --------------LOCAL STORAGE---------------------------------------
-      // ---------------------stocker la récupération des valeurs du formulaire dans le local storage ---
-
-      let productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
-
-      // fonction pour ajouter un produit dans le local storage
-      const addToLS = () => {
-        productInLocalStorage.push(productOption)
-        localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
-      }
-      // condition pour verifier si un produit  est déjà enregistré dans le local storage
-
-      if (productInLocalStorage) {
-        addToLS()
-        confirmation()
-      } else {
-        productInLocalStorage = []
-        addToLS()
-        console.log(productInLocalStorage)
-        confirmation()
-      }
-    })
-    console.log(btnSendToCart)
+      addToLS(productOption, furniture, chooseOption)
 
     // gestion de l'erreur
+    })
   } catch (error) {
     console.error(error.message)
     alert('un problème est survenu')
   }
 }
 // dans cette fonction article vaut les valeurs de furniture
+function confirmation (furniture, chooseOption) {
+  if (window.confirm(` ${furniture.name} avec l'option ${chooseOption} a bien été ajouté au panier`)) {
+    window.location.href = 'cart.html'
+  } else {
+    window.location.href = 'index.html'
+  }
+}
+
+function addToLS (productOption, furniture, chooseOption) {
+  let productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
+  if (!productInLocalStorage) {
+    productInLocalStorage = []
+  }
+  productInLocalStorage.push(productOption)
+  localStorage.setItem('produit', JSON.stringify(productInLocalStorage))
+  confirmation(furniture, chooseOption)
+}
 
 function hydrateArticle (article) {
   return `<li class="productList">
