@@ -38,93 +38,117 @@ function removeItems (cart) { // fonction permettant de retirer un article du pa
     removeItem[i].addEventListener('click', (event) => { // écoute de l'event click sur le bouton
       event.preventDefault() // empêche les actions par défaut des boutons
       const target = event.target // cible l'evenement du click sur le bouton et le stock dans index
-      const index = target.classList.contains('removeItem') ? target.dataset.index : target.parentNode.dataset.index
-      console.log(event.target)
-      console.log(index)
-      const newCart = [...cart]
-      newCart.splice(index, 1)
-      localStorage.setItem('produit', JSON.stringify(newCart))
-      displayCart(newCart)
-      window.location.href = 'cart.html'
+      const index = target.classList.contains('removeItem') ? target.dataset.index : target.parentNode.dataset.index // crée un index qui va parcourir la cible de l'input
+      const newCart = [...cart] // stock les élements du panier dans le tableau newCart
+      newCart.splice(index, 1) // sépare les élément du tableau comme différents objets
+      localStorage.setItem('produit', JSON.stringify(newCart)) // envoi des données dans le local storage
+      displayCart(newCart) // appel la fonction d'affichage du panier pour qu'il se mette à jour
+      window.location.href = 'cart.html' // actualisation de la page lors de la modification de quantité
     })
   }
 }
 
-function removeAll (cart) {
-  const viderPanier = document.querySelector('#clearCart')
-  console.log(viderPanier)
-
-  viderPanier.addEventListener('click', (e) => {
-    e.preventDefault()
-    localStorage.removeItem('produit')
-    window.location.href = 'cart.html'
+function removeAll (cart) { // fonction permettant de retirer tous les articles du panier
+  const viderPanier = document.querySelector('#clearCart') // récupération du btn pour vider le panier
+  viderPanier.addEventListener('click', (e) => { // écoute de l'évenement click sur le bouton
+    e.preventDefault() // empêche le comportement par défaut du bouton
+    localStorage.removeItem('produit') // retrait des articles du local storage
+    window.location.href = 'cart.html' // actualisation de la page lors de la modification de quantité
   })
 }
 
-function totalCart () {
-  const cart = JSON.parse(localStorage.getItem('produit'))
-  console.log('cart', cart)
-  let total = 0
-  for (let i = 0; i < cart.length; i++) {
-    total += totalLine(cart[i].price, cart[i].quantity)
+function totalCart () { // fonction permettant de calculer le prix total du panier
+  const cart = JSON.parse(localStorage.getItem('produit')) // récupération des élements du panier
+  let total = 0 // initialisation du total à zero
+  for (let i = 0; i < cart.length; i++) { // création d'une boucle pour parcourir les différents items du panier
+    total += totalLine(cart[i].price, cart[i].quantity) // ajout à total du prix de chacune des lignes multiplié par la quantité grace à la fonction totalLine
   }
-  return total
+  return total // retourne le total
 }
 
-function displayTotal (price) {
-  const priceToChange = document.querySelector('#cartPriceTotal')
-  const leprix = ` ${price} €`
-  priceToChange.innerHTML = leprix
+function displayTotal (price) { // fonction permettant l'affichage du total
+  const priceToChange = document.querySelector('#cartPriceTotal') // récupération de l'éspace ou le prix doit changer
+  const leprix = ` ${price} €` // stockage du prix de x item dans la variable leprix
+  priceToChange.innerHTML = leprix // integration de "leprix" dans l'espace du document prévu à cet effet
 }
 
 // ouvrir popup form sur le bouton valider panier
 
-const validCmd = document.querySelector('#payButton')
-validCmd.addEventListener('click', () => {
+const validCmd = document.querySelector('#payButton') // récupération du bouton valider la commande
+validCmd.addEventListener('click', () => { // écoute de l'event click sur le bouton pour appeler la fonction openForm()
   openForm()
 })
 
-function openForm () {
-  document.getElementById('myForm').style.display = 'block'
+function openForm () { // fonction permettant d'afficher le formulaire
+  document.getElementById('myForm').style.display = 'block' // display block sur le formulaire pour le faire apparaitre
 }
 
-const closePop = document.querySelector('.cancel')
-closePop.addEventListener('click', () => {
+const closePop = document.querySelector('.cancel') // récupération du btn cancel dans le formulaire
+closePop.addEventListener('click', () => { // écoute de l'évent click sur le bouton cancel pour appeler la fonction closeForm()
   closeForm()
 })
 
-function closeForm () {
-  document.getElementById('myForm').style.display = 'none'
+function closeForm () { // fonction permettant de masquer le formulaire
+  document.getElementById('myForm').style.display = 'none' // display none sur le formulaire pour le faire disparaitre
 }
 
 function changeQuantityListener (cart) {
-  const newCart = [...cart]
-  const qtyElts = document.querySelectorAll('.inputQuantity')
-  qtyElts.forEach(elt => {
-    elt.addEventListener('input', (e) => {
-      const priceElt = e.target.parentNode.querySelector('.itemPrice')
+  const newCart = [...cart] // stock les elements du panier dans le tableau newCart
+  const qtyElts = document.querySelectorAll('.inputQuantity') // récupération de l'input  quantity
+  qtyElts.forEach(elt => { // parcour la quantité d'elts
+    elt.addEventListener('input', (e) => { // écoute l'input quantity
+      const priceElt = e.target.parentNode.querySelector('.itemPrice') // récupère la valeur ( prix de l'item )
       console.log(priceElt)
-      const index = parseInt(e.target.parentNode.dataset.index)
-      newCart[index].quantity = parseInt(e.target.value)
-      const totalElt = e.target.parentNode.querySelector('.totalPriceItem')
-      const total = parseInt(e.target.value) * parseInt(priceElt.dataset.price)
-      totalElt.textContent = `${total},00 €`
-      localStorage.setItem('produit', JSON.stringify(newCart))
-      const totalPrice = totalCart()
+      const index = parseInt(e.target.parentNode.dataset.index) // crée une variable index qui stock l'index de l'element
+      newCart[index].quantity = parseInt(e.target.value) // récupère une position demandée dans le table contenant les items du panier
+      const totalElt = e.target.parentNode.querySelector('.totalPriceItem') // récupère la valeur de l'endroit où sera affiché le prix total
+      const total = parseInt(e.target.value) * parseInt(priceElt.dataset.price) // multiplie la quantité par le prix du produit et stock dans total
+      totalElt.textContent = `${total},00 €` // integre le prix total au document
+      localStorage.setItem('produit', JSON.stringify(newCart)) // stock le prix total dans le local storage
+      const totalPrice = totalCart() // stock la fonction de total dans la variable totalPrice
       displayTotal(totalPrice)
     })
   })
 }
 
-function totalLine (price, quantity) {
-  return price * quantity
+function totalLine (price, quantity) { // fonction permettant de calculer le prix total d'une ligne avec en paramètre un prix et une quantité
+  return price * quantity // retourne le résultat de prix x quantité
 }
 
+// REGEX
+
+// Création des variables utilses au regex
 let email
 let fName
 let nom
 let address
 let city
+
+// Fontions rel Regex
+
+function verifEmail (email) {
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+  return regexEmail.test(email)
+}
+function verifName (alpha) {
+  const regexName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
+  return regexName.test(alpha)
+}
+function verifAddress (address) {
+  const regexAddress = /^([1-9][0-9]*(?:-[1-9][0-9]*)*)[\s,-]+(?:(bis|ter|qua)[\s,-]+)?([\w]+[-\w]*)[\s,]+([-\w].+)$/
+  return regexAddress.test(address)
+}
+
+function manageErrorInfo (isOk, target) {
+  if (isOk) {
+    target.textContent = 'C\'est Ok'
+    target.classList.remove('isIncorrect')
+    target.classList.add('isValid')
+  } else {
+    target.textContent = 'C\'est pas bon'
+    target.classList.add('isIncorrect')
+  }
+}
 
 // verification regex
 
@@ -203,52 +227,9 @@ document.querySelector('form').addEventListener('submit', (e) => {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(data => console.log(data))
-    /* const promessePost = fetch('http://localhost:3000/api/furniture/order', {
-      method: 'POST',
-      body: JSON.stringify(order),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const promiseResponse = promessePost.then(async (response) => {
-      try {
-        console.log(response)
-        return response.json()
-      } catch (e) {
-        console.log(e)
-      }
-    })
-    promiseResponse.then(orderConfirm => {
-      console.log(order)
-      localStorage.setItem('orderConfirm', JSON.stringify(orderConfirm))
-    }) */
+    }).then(data => localStorage.setItem('data', JSON.stringify(data)))
   }
 })
-
-function verifEmail (email) {
-  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
-  return regexEmail.test(email)
-}
-function verifName (alpha) {
-  const regexName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
-  return regexName.test(alpha)
-}
-function verifAddress (address) {
-  const regexAddress = /^([1-9][0-9]*(?:-[1-9][0-9]*)*)[\s,-]+(?:(bis|ter|qua)[\s,-]+)?([\w]+[-\w]*)[\s,]+([-\w].+)$/
-  return regexAddress.test(address)
-}
-
-function manageErrorInfo (isOk, target) {
-  if (isOk) {
-    target.textContent = 'C\'est Ok'
-    target.classList.remove('isIncorrect')
-    target.classList.add('isValid')
-  } else {
-    target.textContent = 'C\'est pas bon'
-    target.classList.add('isIncorrect')
-  }
-}
 
 async function fetchAPI (url, options) {
   const response = await fetch(url, options)
