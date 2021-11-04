@@ -228,6 +228,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
         'Content-Type': 'application/json'
       }
     }).then(data => localStorage.setItem('data', JSON.stringify(data)))
+    window.location.href = 'confirmation.html'
   }
 })
 
