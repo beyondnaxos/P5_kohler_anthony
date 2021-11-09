@@ -588,7 +588,7 @@ main #apitest ul .indexList .description--groupList p {
 }
 
 .titleLabel {
-  margin-bottom: 10px;
+  height: 30px;
 }
 
 /* Full-width input fields */
@@ -704,17 +704,15 @@ label {
 .isValid {
   background-color: white;
   margin-left: 20px;
-  margin-left: 20px;
-  color: #009625;
+  color: black;
   padding: 3px;
-  border-radius: 5px;
 }
 
 .isIncorrect {
-  border-radius: 5px;
   padding: 3px;
   background-color: white;
   margin-left: 20px;
-  color: #f72727;
+  color: black;
+  margin-left: 20px;
 }
 /*# sourceMappingURL=style.css.map */

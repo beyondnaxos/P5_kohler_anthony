@@ -431,7 +431,7 @@ main {
 }
 
 .titleLabel {
-  margin-bottom: 10px;
+  height: 30px;
 }
 
 /* Full-width input fields */
@@ -541,18 +541,17 @@ width: 100px;
 .isValid {
  background-color: rgb(255, 255, 255);
  margin-left: 20px;
- margin-left: 20px;
- color: rgb(0, 150, 37);
+ color: rgb(0, 0, 0);
  padding: 3px;
- border-radius: 5px;
 }
 
 .isIncorrect {
   
-  border-radius: 5px;
   padding: 3px;
   background-color: rgb(255, 255, 255);
   margin-left: 20px;
-  color: rgb(247, 39, 39);
+  color: rgb(0, 0, 0);
+  margin-left: 20px;
+
 }
 
