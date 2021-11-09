@@ -416,21 +416,28 @@ main {
   position: absolute;
   top: 200px;
     z-index: 9;
+  transition: 2s;
   }
   
+  
   /* Add styles to the form container */
-  .form-container {
-  border-radius: 20px;
+ .form-container {
+
+   margin-top: 45px;
   max-width: 1024px;
-  width: 550px;
+  width: 984px;
   padding: 20px;
-  background-color: rgb(49, 49, 49);
+  background-color: rgb(14, 14, 14);
+}
+
+.titleLabel {
+  margin-bottom: 10px;
 }
 
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
   padding: 15px;
-  margin: 5px 0 16px 0;
+  margin: 5px 0 20px 0;
   border: none;
   background: #ffffff;
 }
@@ -504,15 +511,19 @@ label{
 width: 200px;
 margin-right: 50px;
 }
+
 #itemOption{
 width: 180px;
 }
+
 #itemQt{
 margin-right: 120px;
 }
+
 #itemPrice{
 width: 210px;
 }
+
 #itemTotalPrice{
 width: 100px;
 }
@@ -528,10 +539,20 @@ width: 100px;
 }
 
 .isValid {
-  color: darkgreen
+ background-color: rgb(255, 255, 255);
+ margin-left: 20px;
+ margin-left: 20px;
+ color: rgb(0, 150, 37);
+ padding: 3px;
+ border-radius: 5px;
 }
 
 .isIncorrect {
-  color: red
+  
+  border-radius: 5px;
+  padding: 3px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 20px;
+  color: rgb(247, 39, 39);
 }
 

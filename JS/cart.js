@@ -141,11 +141,11 @@ function verifAddress (address) {
 
 function manageErrorInfo (isOk, target) {
   if (isOk) {
-    target.textContent = 'C\'est Ok'
+    target.textContent = '✔'
     target.classList.remove('isIncorrect')
     target.classList.add('isValid')
   } else {
-    target.textContent = 'C\'est pas bon'
+    target.textContent = '✘'
     target.classList.add('isIncorrect')
   }
 }

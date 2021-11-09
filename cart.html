@@ -55,44 +55,40 @@
         <form action="/confirmation.html" class="form-container" method="POST">
           <h1>Validation du panier</h1>
 
-          <label for="fname">Prénom:</label>
+          <label class='titleLabel' for="fname">Prénom:<span id="validateFName"></span></label>
           <input type="text" name="fname" id="fName" />
-          <span id="validateFName"></span>
+          
 
-          <label for="name">Nom:</label>
+          <label class='titleLabel' for="name">Nom:<span id="validateName"></span></label>
           <input type="text" name="name" id="name" />
-          <span id="validateName"></span>
+          
 
-          <label for="address">Adresse:</label>
+          <label class='titleLabel' for="address">Adresse:<span id="validateAddress"></span></label>
           <input type="text" name="address" id="address" />
-          <span id="validateAddress"></span>
 
-          <label for="city">Ville:</label>
+          <label class='titleLabel' for="city">Ville:<span id="validateCity"></span></label>
           <input type="text" name="city" id="city" />
-          <span id="validateCity"></span>
+          
 
-          <label for="email">Email:</label>
+          <label class='titleLabel' for="email">Email: <span id="validateEmail"></span> </label>
           <input type="text" name="email" id="email" />
-          <span id="validateEmail"></span>
-        
+
           <button type="submit" class="btn" id="marginTop processBtn">
             Procéder au paiement
           </button>
 
           <button type="button" class="btn cancel">Annuler</button>
-
         </form>
       </div>
     </main>
 
-<!-- 
+    <!-- 
     firstName: string,
     *   lastName: string,
     *   address: string,
     *   city: string,
     *   email: string -->
 
-    
     <script src="JS/cart.js"></script>
     <script
       src="https://kit.fontawesome.com/0b7da06416.js"
