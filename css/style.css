@@ -714,4 +714,36 @@ label {
   color: black;
   margin-left: 20px;
 }
+
+.logoConfirm {
+  height: 70px;
+  width: auto;
+  position: absolute;
+  top: 300px;
+  left: 550px;
+  margin: 0;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.confirmMain {
+  margin: 0;
+  background-color: #1c1b1d;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.confirmMain .confirmContainer {
+  color: white;
+  font-family: roboto;
+}
 /*# sourceMappingURL=style.css.map */
