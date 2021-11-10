@@ -16,6 +16,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
 .sideBlock1 {
@@ -570,7 +571,7 @@ main #apitest ul .indexList .description--groupList p {
 .form-popup {
   display: none;
   position: absolute;
-  top: 230px;
+  top: 150px;
   z-index: 9;
   -webkit-transition: 2s;
   transition: 2s;

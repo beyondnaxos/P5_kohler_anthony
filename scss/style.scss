@@ -9,6 +9,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 .sideBlock1{
   height: 20px;
@@ -429,7 +430,7 @@ main {
 .form-popup {
   display: none;
   position: absolute;
-  top: 230px;
+  top: 150px;
     z-index: 9;
   transition: 2s;
   }
