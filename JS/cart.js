@@ -21,7 +21,7 @@ function displayCart (cart) { // fonction permettant d'afficher les articles du 
     <input type="number" class="inputQuantity" id="itemQt" min="1" max="10" value="${cart[k].quantity}">      
     <p class="itemCart itemPrice" data-price="${cart[k].price}" id="itemPrice">${cart[k].price},00€</p>
     <p class="itemCart totalPriceItem" id="itemTotalPrice">${totalLine(cart[k].price, cart[k].quantity)},00€</p>
-    <button class="removeItem" data-index="${k}"><i class="far fa-trash-alt"></i></button>
+    <button class="removeItem" data-index="${k}"><i class="far fa-trash-alt removeitemStyle"></i></button>
     </div>` // contenu à intégrer dans le tableau avec en paramètres les éléments du local storage, soit : productInLocalStorage.name etc
     }
     displayProductCart.innerHTML = itemsCart.join('') // integration au panier des produits stockés dans le tableau

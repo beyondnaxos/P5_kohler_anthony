@@ -11,16 +11,16 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-.sideBlock1{
+.sideBlock1 {
   height: 20px;
   position: absolute;
   width: 100vw;
   transform: rotate(45deg);
   background-color: rgb(32, 32, 32);
   top: 0;
- z-index: -10;
+  z-index: -10;
 }
-.sideBlock2{
+.sideBlock2 {
   height: 1050px;
   position: absolute;
   width: 20px;
@@ -28,9 +28,9 @@ body {
   background-color: rgb(32, 32, 32);
   top: 110px;
   left: 360px;
- z-index: -10;
+  z-index: -10;
 }
-.sideBlock3{
+.sideBlock3 {
   height: 1050px;
   position: absolute;
   width: 20px;
@@ -38,9 +38,9 @@ body {
   background-color: rgb(32, 32, 32);
   top: 110px;
   left: 260px;
- z-index: -10;
+  z-index: -10;
 }
-.sideBlock4{
+.sideBlock4 {
   height: 1050px;
   position: absolute;
   width: 20px;
@@ -48,9 +48,8 @@ body {
   background-color: rgb(32, 32, 32);
   top: 110px;
   left: 160px;
- z-index: -10;
+  z-index: -10;
 }
-
 
 header {
   width: 1024px;
@@ -59,23 +58,21 @@ header {
   flex-direction: column;
   align-items: center;
   // border-radius: 0 0 20px 20px;
-  .logo-container{
+  .logo-container {
     height: 200px;
     width: 1024px;
-  
-  .logo {
-    height: 70px;
-    width: auto;
-    position: relative;
-    top: 80px;
-    left: 0;
-  }
+
+    .logo {
+      height: 70px;
+      width: auto;
+      position: relative;
+      top: 80px;
+      left: 0;
+    }
   }
 
-  
   //   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-  
   ul {
     display: flex;
     flex-direction: row;
@@ -83,7 +80,7 @@ header {
     align-items: center;
 
     li {
-      width: 120px;
+      
       list-style-type: none;
       font-family: "Urbanist", sans-serif;
       font-weight: 600;
@@ -95,11 +92,13 @@ header {
 
       .cartAlign {
         margin-left: 30px;
+        margin-right: 10px;
       }
-      
+
       .cartIcon {
         font-size: 25px;
-        color: #131212 ;
+        color: #131212;
+      
       }
     }
   }
@@ -132,7 +131,6 @@ header {
   }
 }
 
-
 main {
   width: 1024px;
   margin-top: 20px;
@@ -157,8 +155,9 @@ main {
         background-color: rgb(255, 255, 255);
         display: flex;
         flex-direction: column;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-          0 6px 6px rgba(0, 0, 0, 0.23);
+        box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.23);
+        
+       
 
         .imgList {
           object-fit: cover;
@@ -190,7 +189,7 @@ main {
   width: 1024px;
   display: flex;
   justify-content: center;
-  
+
   ul {
     padding: 0;
     display: flex;
@@ -251,7 +250,6 @@ main {
           width: 280px;
           height: 3px;
           background: rgb(29, 28, 28);
-    
         }
 
         #varnish {
@@ -278,7 +276,7 @@ main {
           width: 100px;
           height: 3px;
           background: #000;
-          position: relative;          
+          position: relative;
           top: -10px;
           left: -2px;
         }
@@ -312,13 +310,13 @@ main {
 }
 
 .containerCart {
-    min-height: 300px;
+  min-height: 300px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   padding: 10px 40px;
   width: 1024px;
-  background-color:white;
+  background-color: white;
 
   .titleBar {
     display: flex;
@@ -333,7 +331,7 @@ main {
     }
   }
   #productToShow {
-    background-color: rgb(58, 28, 0);
+    background-color: rgb(24, 23, 23);
     min-height: 200px;
     margin-bottom: 10px;
     flex-wrap: wrap;
@@ -354,7 +352,7 @@ main {
     margin-left: auto;
     margin-top: 30px;
     padding: 10px 0;
-    button{
+    button {
       border-radius: 5px;
     }
     #clearCart {
@@ -364,7 +362,7 @@ main {
       font-size: 18px;
       border: none;
       padding: 10px;
-      margin-right: 20px ;
+      margin-right: 20px;
     }
     #payButton {
       background: rgb(233, 49, 49);
@@ -377,20 +375,20 @@ main {
   }
 }
 
-#cartIsEmpty{
+#cartIsEmpty {
   background-color: rgb(39, 39, 39);
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  .emptyCartStyle{
-    
+  .emptyCartStyle {
+    font-family: roboto;
     color: white;
     font-size: 17px;
   }
 }
-#cartIsFilled{
+#cartIsFilled {
   background-color: rgb(255, 255, 255);
   height: 30px;
   display: flex;
@@ -398,20 +396,16 @@ main {
   justify-content: flex-start;
   width: 100%;
   padding: 15px 0;
-  .itemCart{
-    
+  .itemCart {
     color: rgb(2, 2, 2);
     font-size: 17px;
-    
   }
 }
 
-.inputQuantity{
+.inputQuantity {
   width: 30px;
   margin-right: 110px;
 }
-
-
 
 .open-button {
   background-color: #555;
@@ -431,15 +425,13 @@ main {
   display: none;
   position: absolute;
   top: 150px;
-    z-index: 9;
+  z-index: 9;
   transition: 2s;
-  }
-  
-  
-  /* Add styles to the form container */
- .form-container {
+}
 
-   margin-top: 45px;
+/* Add styles to the form container */
+.form-container {
+  margin-top: 45px;
   max-width: 1024px;
   width: 984px;
   padding: 20px;
@@ -451,7 +443,8 @@ main {
 }
 
 /* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type="text"],
+.form-container input[type="password"] {
   padding: 15px;
   margin: 5px 0 20px 0;
   border: none;
@@ -459,21 +452,21 @@ main {
 }
 
 /* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
- 
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: rgb(255, 255, 255);
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -483,9 +476,9 @@ main {
 }
 
 /* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  
-opacity: 1;
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
 }
 
 form {
@@ -499,7 +492,7 @@ form h1 {
   color: white;
 }
 
-label{
+label {
   font-weight: bold;
   font-family: roboto;
   color: white;
@@ -512,63 +505,66 @@ label{
 #vernishWidth {
   width: 170px;
 }
-#qtWidth{
+#qtWidth {
   width: 170px;
 }
-#priceUWidth{
+#priceUWidth {
   width: 170px;
- margin-right: 40px;
+  margin-right: 40px;
 }
-#totalPriceWidth{
+#totalPriceWidth {
   width: 170px;
 }
 
-#itemName{
-width: 200px;
-margin-right: 50px;
+#itemName {
+  width: 200px;
+  margin-right: 50px;
 }
 
-#itemOption{
-width: 180px;
+#itemOption {
+  width: 180px;
 }
 
-#itemQt{
-margin-right: 120px;
+#itemQt {
+  margin-right: 120px;
 }
 
-#itemPrice{
-width: 210px;
+#itemPrice {
+  width: 210px;
 }
 
-#itemTotalPrice{
-width: 100px;
+#itemTotalPrice {
+  width: 100px;
 }
 
 .removeItem {
   margin-right: 0;
   margin-left: 30px;
+  border: none;
+  background-color: rgb(26, 24, 24);
+  height: 25px;
+  width: 25px;
+  text-align: center
 }
 
-#marginTop{
+#marginTop {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .isValid {
- background-color: rgb(255, 255, 255);
- margin-left: 20px;
- color: rgb(0, 0, 0);
- padding: 3px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 20px;
+  color: rgb(0, 0, 0);
+  padding: 3px;
 }
 
 .isIncorrect {
-  
   padding: 3px;
   background-color: rgb(255, 255, 255);
   margin-left: 20px;
   color: rgb(0, 0, 0);
   margin-left: 20px;
-
 }
 
 .logoConfirm {
@@ -589,9 +585,12 @@ width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  .confirmContainer{
+  .confirmContainer {
     color: white;
     font-family: roboto;
   }
 }
 
+.removeitemStyle{
+  color: white;
+}
