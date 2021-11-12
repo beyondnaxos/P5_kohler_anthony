@@ -16,7 +16,7 @@ function displayCart (cart) { // fonction permettant d'afficher les articles du 
     for (let k = 0; k < cart.length; k++) { // boucle servant à parcourir le tableau dans on integralité
       itemsCart[k] = ` 
     <div id="cartIsFilled" data-index="${k}" >
-    <p class="itemCart" id="itemName">${cart[k].name}</p>
+    <p class="itemCart" id="itemName"><strong>${cart[k].name}</strong></p>
     <p class="itemCart" id="itemOption">${cart[k].option}</p>
     <input type="number" class="inputQuantity" id="itemQt" min="1" max="10" value="${cart[k].quantity}">      
     <p class="itemCart itemPrice" data-price="${cart[k].price}" id="itemPrice">${cart[k].price},00€</p>
