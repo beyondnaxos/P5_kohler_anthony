@@ -1,20 +1,17 @@
 // Stock l'url de l'api dans la variable lienAPI
 const lienAPI = 'http://localhost:3000/api/furniture/'
-// Selectionne l'ID apitest
+// Selectionne l'ID apitest qui correspond au container dans lequel sera afficher la réponse du serveur
 document.querySelector('#apitest')
-// Va chercher l'Api , stocker dans réponse puis le transformer en objet JSON
+// Va chercher l'Api , stock le résultat dans réponse puis converti les données au format JSPON
 fetch(lienAPI).then(response => response.json())
-  // Les données du JSON sont transmises à furniture
   .then(furniture => {
     console.log(furniture)
-    // Création de mise en forme de la variable sectionArticles
+    // création du code html dynamique qui affichera à l'aide d'une boucle tous les produits de l'API
     let sectionArticles = '<ul>'
-    // Création de la boucle pour afficher tous les produits
     for (const furnitureObject of furniture) {
       sectionArticles += displayProduct(furnitureObject)
     }
     sectionArticles += '</ul>'
-    // innerHtml sectionArticles
     document.querySelector('#apitest').innerHTML = sectionArticles
   }).catch(erreur => alert('un problème est survenu'))
 

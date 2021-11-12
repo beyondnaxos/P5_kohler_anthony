@@ -72,7 +72,7 @@ function displayTotal (price) { // fonction permettant l'affichage du total
   priceToChange.innerHTML = leprix // integration de "leprix" dans l'espace du document prévu à cet effet
 }
 
-// ouvrir popup form sur le bouton valider panier
+// POPUP FORM
 
 const validCmd = document.querySelector('#payButton') // récupération du bouton valider la commande
 validCmd.addEventListener('click', () => { // écoute de l'event click sur le bouton pour appeler la fonction openForm()
@@ -124,8 +124,7 @@ let nom
 let address
 let city
 
-// Fontions rel Regex
-
+// Fontions de vérifictation Regex
 function verifEmail (email) {
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
   return regexEmail.test(email)
@@ -139,6 +138,7 @@ function verifAddress (address) {
   return regexAddress.test(address)
 }
 
+// fonction de gestion d'erreur selon le résultat de la saisie
 function manageErrorInfo (isOk, target) {
   if (isOk) {
     target.textContent = '✔'
@@ -192,6 +192,8 @@ document.querySelector('#city').addEventListener('input', (e) => {
   manageErrorInfo(result, spanCity)
 })
 
+// lors de la validation du formulaire cette methode permettra de renvoyer les données de saisie de celui ci
+// afin d'envoyer une requete POST à l'API et envoyer la réponse vers la page de confirmation
 document.querySelector('form').addEventListener('submit', (e) => {
   e.preventDefault()
   const formData = new FormData(e.target)

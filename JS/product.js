@@ -1,26 +1,28 @@
 
-// Récupération de l'id des articles de l'api  grâce à une fonction async et stockage dans une constante
+// Récupération de l'id des articles de l'api  grâce à une fonction auto appelante
 (async function () {
   const articleID = getParamFromUrl('id')
   await getArticle(articleID)
 })()
 
-// fonction permettant la création de l'url ID
+// fonction permettant la récupération de l'ID dans l'url
 function getParamFromUrl (param) {
   return new URL(location.href).searchParams.get(param)
 }
 
 async function getArticle (articleID) {
+  // récupération des prodtuits de l'API
   try {
     const response = await fetch(`http://localhost:3000/api/furniture/${articleID}`)
     const furniture = await response.json()
-
+    // contenu à àjouter à la page produit
     const sectionArticles = `<ul>${hydrateArticle(furniture)}</ul>`
     document.querySelector('#apitest').innerHTML = sectionArticles
-
+    // récupération de la valeur de l'input selection de vernis
     const chooseOption = document.querySelector('#varnish').value
-    // selection du bouton ajouter au panier
+    // récupération du bouton ajouter au panier
     const btnSendToCart = document.querySelector('#buttonClic')
+    // au click sur le bouton ajouter les elt sont envoyés vers le local storage
     btnSendToCart.addEventListener('click', (event) => {
       event.preventDefault()
       const productOption = {
@@ -40,7 +42,7 @@ async function getArticle (articleID) {
     alert('un problème est survenu')
   }
 }
-// dans cette fonction article vaut les valeurs de furniture
+// dans cette fonction de confirmation , 'article' vaut les valeurs de 'furniture'
 function confirmation (furniture, chooseOption) {
   if (window.confirm(` ${furniture.name} avec l'option ${chooseOption} a bien été ajouté au panier`)) {
     window.location.href = 'cart.html'
@@ -49,6 +51,7 @@ function confirmation (furniture, chooseOption) {
   }
 }
 
+// la fonction permet l'envoi des produits vers le local storage
 function addToLS (productOption, furniture, chooseOption) {
   let productInLocalStorage = JSON.parse(localStorage.getItem('produit'))
   if (!productInLocalStorage) {
@@ -59,6 +62,7 @@ function addToLS (productOption, furniture, chooseOption) {
   confirmation(furniture, chooseOption)
 }
 
+// la fonction permet de  retourner du code html dynamique
 function hydrateArticle (article) {
   return `<li class="productList">
   <img class="imgProduct" src="${article.imageUrl}"></img>
@@ -78,6 +82,7 @@ function hydrateArticle (article) {
   </li>`
 }
 
+// la fonction permet de renvoyer une liste de vernis sous forme de tableau
 function displayVarnish (varnishs) {
   return varnishs.map(varnish => `<option>${varnish}</option>`).join('')
 }
