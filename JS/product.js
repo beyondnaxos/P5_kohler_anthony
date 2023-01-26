@@ -15,14 +15,10 @@ async function getArticle (articleID) {
   try {
     const response = await fetch(`http://localhost:3000/api/furniture/${articleID}`)
     const furniture = await response.json()
-    // contenu à àjouter à la page produit
     const sectionArticles = `<ul>${hydrateArticle(furniture)}</ul>`
     document.querySelector('#apitest').innerHTML = sectionArticles
-    // récupération de la valeur de l'input selection de vernis
     const chooseOption = document.querySelector('#varnish').value
-    // récupération du bouton ajouter au panier
     const btnSendToCart = document.querySelector('#buttonClic')
-    // au click sur le bouton ajouter les elt sont envoyés vers le local storage
     btnSendToCart.addEventListener('click', (event) => {
       event.preventDefault()
       const productOption = {
